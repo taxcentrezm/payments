@@ -1,3 +1,17 @@
-"scripts": {
+{
+  "name": "payments-backend",
+  "version": "1.0.0",
+  "description": "A backend for processing payments.",
+  "main": "backend.mjs",
+  "type": "module",
+  "scripts": {
     "start": "node backend.mjs"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
+    "dotenv": "^16.4.5"
+  }
 }
