@@ -54,7 +54,7 @@ export default async function handler(req, res) {
       payload,
       {
         headers: { 'Content-Type': 'application/json'},
-        timeout: 10000 // 10 seconds
+        timeout: 30000 // 10 seconds
 }
 );
     res.status(200).json(response.data);
