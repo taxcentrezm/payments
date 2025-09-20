@@ -1,5 +1,12 @@
 import axios from 'axios';
-
+const response = await axios.post(
+    'https://sandbox.zynlepay.com/zynlepay/jsonapi',
+    payload,
+    {
+      headers: { 'Content-Type': 'application/json'},
+      timeout: 10000 // 10 seconds
+}
+);
 export default async function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -39,6 +46,12 @@ export default async function handler(req, res) {
 });
     res.status(200).json(response.data);
 } catch (error) {
-    res.status(500).json({ error: 'Payment initiation failed', details: error.message});
+  console.error('Payment error:', {
+    message: error.message,
+    code: error.code,
+    config: error.config,
+    response: error.response?.data
+});
+  res.status(500).json({ error: 'Payment initiation failed', details: error.message});
 }
 }
