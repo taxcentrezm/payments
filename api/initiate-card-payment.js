@@ -26,10 +26,25 @@ export default async function handler(req, res) {
       api_key: '88b1233a-3c3a-4caa-ada3-13c6a0a70281',
       channel: 'card'
 },
-    data: {
-      method: 'runTranAuthCapture',
-      reference_no, amount, description, first_name, last_name,
-      address, email, phone, city, state, currency, zip_code, country
+   data: {
+  method: 'runTranAuthCapture',
+  reference_no,
+  amount,
+  description,
+  first_name,
+  last_name,
+  address,
+  email,
+  phone,
+  city,
+  state,
+  currency,
+  zip_code,
+  country,
+  card_number: '4111111111111111',
+  card_expiry_month: '08',
+  card_expiry_year: '2028',
+  card_cvv: '971'
 }
 };
 
