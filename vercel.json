@@ -1,13 +1,14 @@
 {
   "version": 2,
   "builds": [
-    { "src": "api/*.js", "use": "@vercel/node"}
+    { "src": "api/*.js", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/initiate-card-payment", "dest": "/api/initiate-card-payment.js"},
-    { "src": "/check-payment-status", "dest": "/api/check-payment-status.js"},
-    { "src": "/payment-callback", "dest": "/api/payment-callback.js"},
-    { "src": "/check-balance", "dest": "/api/check-balance.js"},
-    { "src": "/register-contractor", "dest": "/api/register-contractor.js"}
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/initiate-card-payment", "dest": "/api/initiate-card-payment.js" },
+    { "src": "/check-payment-status", "dest": "/api/check-payment-status.js" },
+    { "src": "/payment-callback", "dest": "/api/payment-callback.js" },
+    { "src": "/check-balance", "dest": "/api/check-balance.js" },
+    { "src": "/register-contractor", "dest": "/api/register-contractor.js" }
   ]
 }
