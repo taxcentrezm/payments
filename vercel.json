@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "api/*.js", "use": "@vercel/node" }
-  ],
   "routes": [
     { "src": "/", "dest": "/index.html" },
     { "src": "/initiate-card-payment", "dest": "/api/initiate-card-payment.js" },
