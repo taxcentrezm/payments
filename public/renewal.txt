@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCC Zambia – Renewal Form</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+ body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+background: linear-gradient(to right, #f0f0f5, #e6e6ec);
+margin: 0;
+padding: 2rem;
+color: #333;
+}
+
+.container {
+max-width: 700px;
+margin: auto;
+background: rgba(255, 255, 255, 0.8);
+backdrop-filter: blur(10px);
+border-radius: 12px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+padding: 2rem;
+}
+
+h1 {
+text-align: center;
+margin-bottom: 1rem;
+}
+
+h3 {
+text-align: center;
+margin-bottom: 1rem;
+}
+
+fieldset {
+border: none;
+margin-bottom: 1.5rem;
+}
+
+legend {
+font-weight: bold;
+margin-bottom: 0.5rem;
+}
+
+label {
+display: block;
+margin-bottom: 1rem;
+}
+
+input, select {
+width: 100%;
+padding: 0.6rem;
+border-radius: 8px;
+border: 1px solid #ccc;
+margin-top: 0.3rem;
+font-size: 1rem;
+}
+
+button {
+background-color: #007aff;
+color: white;
+padding: 0.8rem 1.2rem;
+border: none;
+border-radius: 10px;
+font-size: 1rem;
+cursor: pointer;
+transition: background 0.3s ease;
+}
+
+button:hover {
+background-color: #005bb5;
+}
+
+.progress-container {
+[08/17, 22:39] Microsoft Copilot: background-color: #e0e0e0;
+border-radius: 10px;
+overflow: hidden;
+margin-bottom: 1rem;
+height: 10px;
+}
+
+.progress-bar {
+height: 10px;
+background-color: #007aff;
+width: 0%;
+transition: width 0.3s ease;
+}
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.ownership-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+	<div class="d-flex justify-content-center align-items-center mt-5 mb-4">
+          <img
+            src="ncc.png"
+            alt="NCC Logo"
+            class="img-fluid me-4"
+            style="max-width: 150px;"
+          />
+          <img
+            src="tros1.png"
+            alt="Taxman Zambia logo"
+            class="img-fluid"
+            style="max-width: 150px;"
+          />
+        </div>
+    <h1> National Council Of Construction Zambia </h1>
+	<h3>REGISTRATION OF CONTRACTORS - 2025 </h3> 
+	<center><p>Contractor Renewal Form 2025</P></center>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <form id="renewalForm">
+      <!-- Section 1: Company Details -->
+      <fieldset>
+        <legend>1. Company Details</legend>
+        <label>Company Name:
+          <input type="text" name="companyName" required />
+        </label>
+        <label>Registered Physical Address:
+          <input type="text" name="physicalAddress" required />
+        </label>
+        <label>Phone Number:
+          <input type="tel" name="phone" required />
+        </label>
+        <label>Email:
+          <input type="email" name="email" required />
+        </label>
+      </fieldset>
+
+      <!-- Section 2: Grade & Category -->
+      <fieldset>
+        <legend>2. Grade & Category</legend>
+        <label>Grade:
+          <select name="grade" required>
+            <option value="">Select Grade</option>
+            <option value="1">Grade 1</option>
+            <option value="2">Grade 2</option>
+            <option value="3">Grade 3</option>
+            <option value="4">Grade 4</option>
+            <option value="5">Grade 5</option>
+            <option value="6">Grade 6</option>
+          </select>
+        </label>
+        <label>Category:
+          <select name="category" required>
+            <option value="">Select Category</option>
+            <option value="B">Building</option>
+            <option value="C">Civil</option>
+            <option value="R">Roads</option>
+            <option value="E">Electrical</option>
+            <option value="ME">Mechanical</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <!-- Section 3: Declaration -->
+      <fieldset>
+        <legend>3. Declaration</legend>
+        <label>
+          <input type="checkbox" name="declaration" required />
+          I declare that all information provided is true and complete.
+        </label>
+      </fieldset><!-- Section 4: Shareholders & Ownership -->
+<fieldset>
+  <legend>4. Shareholders & Ownership</legend>
+  <label>Upload PACRA Printout:
+    <input type="file" name="pacraPrintout" accept=".pdf,.jpg,.png" />
+  </label>
+
+  <div class="ownership-options">
+    <label><input type="radio" name="ownership" value="maleOwned" required /> Male Owned (100%)</label>
+    <label><input type="radio" name="ownership" value="maleDominated" /> Male Dominated (>50%)</label>
+    <label><input type="radio" name="ownership" value="femaleOwned" /> Female Owned (100%)</label>
+    <label><input type="radio" name="ownership" value="femaleDominated" /> Female Dominated (>50%)</label>
+    <label><input type="radio" name="ownership" value="equalShares" /> Equal Shares (50/50)</label>
+    <label><input type="radio" name="ownership" value="corporateShares" /> Corporate Shares</label>
+  </div>
+</fieldset>
+
+<!-- Section 5: Projects -->
+<fieldset>
+  <legend>5. Projects</legend>
+  <label>Ongoing Projects:
+    <textarea name="ongoingProjects" rows="4" placeholder="List project name, amount, location, dates, registration no."></textarea>
+  </label>
+  <label>Completed Projects (Previous Year):
+    <textarea name="completedProjects" rows="4" placeholder="List project name, amount, location, dates, registration no."></textarea>
+  </label>
+</fieldset>
+
+<!-- Section 6: Fees & Payment -->
+<fieldset>
+  <legend>6. Fees & Payment</legend>
+  <label>Grade:
+    <select name="feeGrade" required>
+      <option value="">Select Grade</option>
+      <option value="1">Grade 1</option>
+      <option value="2">Grade 2</option>
+      <option value="3">Grade 3</option>
+      <option value="4">Grade 4</option>
+      <option value="5">Grade 5</option>
+      <option value="6">Grade 6</option>
+    </select>
+  </label>
+  <label>Company Type:
+    <select name="companyType" required>
+      <option value="">Select Type</option>
+      <option value="zambian">Zambian</option>
+      <option value="foreign">Foreign</option>
+      <option value="specialist">Specialist</option>
+    </select>
+  </label>
+  <label>Month of Renewal:
+    <select name="renewalMonth" required>
+      <option value="">Select Month</option>
+      <option value="January">January</option>
+      <option value="February">February</option>
+      <option value="March">March</option>
+      <option value="April">April</option>
+      <option value="May">May</option>
+      <option value="June">June</option>
+      <option value="July">July</option>
+      <option value="August">August</option>
+      <option value="September">September</option>
+      <option value="October">October</option>
+      <option value="November">November</option>
+      <option value="December">December</option>
+    </select>
+  </label>
+</fieldset>
+
+<!-- Section 7: Scrutiny Checklist -->
+<fieldset>
+  <legend>7. Scrutiny Checklist</legend>
+  <label><input type="checkbox" name="proofOfPayment" required /> Original Proof of Payment</label>
+  <label><input type="checkbox" name="pacraAttached" required /> Valid PACRA Printout or Share Register</label>
+  <label><input type="checkbox" name="declarationSigned" required /> Signed Declaration (Page 3)</label>
+  <label><input type="checkbox" name="powerOfAttorney" /> Power of Attorney (if applicable)</label>
+</fieldset>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+
+  <script>
+const form = document.getElementById("renewalForm");
+const progressBar = document.getElementById("progressBar");
+
+form.addEventListener("input", () => {
+  const inputs = form.querySelectorAll("input, select, textarea");
+  const filled = Array.from(inputs).filter(input => {
+    if (input.type === "checkbox" || input.type === "radio") {
+      return input.checked;
+}
+    return input.value.trim()!== "";
+}).length;
+  const total = inputs.length;
+  const progress = Math.round((filled / total) * 100);
+  progressBar.style.width = `${progress}%`;
+});
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert("✅ Application submitted successfully!");
+  form.reset();
+  progressBar.style.width = "0%";
+});
+
+</script></script>
+</body>
+</html>

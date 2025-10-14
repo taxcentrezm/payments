@@ -1,0 +1,16 @@
+/* Logo Row — no background */
+.logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  gap: 2rem;
+  background: none; /* No background */
+}
+
+.logo-row img {
+  max-width: 150px;
+  height: auto;
+  display: block;
+}

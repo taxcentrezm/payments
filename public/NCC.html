@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCC Zambia Contractor Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  --accent: #0078d4;
+  --accent-hover: #005bb5;
+  --bg-light: #f0f4f8;
+  --bg-dark: #e6ecf2;
+  --text-dark: #333;
+  --text-muted: #555;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, var(--bg-light), var(--bg-dark));
+  color: var(--text-dark);
+}
+
+
+header {
+  background: url('contractor.jpg') no-repeat center center/cover;
+  height: 60vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+  position: relative;
+  font-size: 2.5rem;
+  z-index: 1;
+  margin: 0;
+  padding: 2 2rem;
+}
+
+.content {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.form-links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top:10px;
+}
+
+.form-card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 280px;
+  text-align: left;
+}
+
+.form-card:hover {
+  transform: translateY(-5px);
+}
+
+.form-card h3 {
+  margin-top: 0;
+  color: var(--accent);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-card h3 i {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.form-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.form-card a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.form-card a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.8rem;
+}
+
+.content {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+}
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+}
+
+  nav a {
+    margin: 0.5rem 0;
+}
+
+.form-row {
+    flex-direction: column;
+    align-items: center;
+}
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-brand.brand-link {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  width: 100px;
+  height: auto;
+  background: white;
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.link-green { color: #006b3f;}
+.link-red { color: #ff0000;}
+.link-orange { color: #fcb131;}
+.link-black { color: #000000;}
+
+.nav-links a:hover {
+  background-color: rgba(0,0,0,0.05);
+  transform: scale(1.05);
+}
+
+/* Tool Icons */
+.nav-tools {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-tools a {
+  color: #1E4E8C;
+  font-size: 1.2rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-tools a:hover {
+  color: #2A6ACB;
+  transform: scale(1.1);
+}
+.new-hero {
+  position: relative;
+  background: url("contractor.jpg") center/cover no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.hero-content {
+ 
+  color: #212A31;
+  max-width: 900px;
+  padding: 40px 30px;
+  border-radius: 20px;
+
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  margin-top:50px;
+}
+
+.highlight-red {
+  color: #fb2121;
+}
+
+.highlight-navy {
+  color: white;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color:white;
+}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a href="/" class="brand-link">
+      <img src="ncc.png" alt="NCC Logo" class="brand-logo" />
+    </a>
+  </div>
+
+  <div class="nav-tools">
+    <a href="#forms" title="Forms"><i class="fas fa-file-alt"></i></a>
+    <a href="#reports" title="Reports"><i class="fas fa-chart-line"></i></a>
+    <a href="#tools" title="Tools"><i class="fas fa-tools"></i></a>
+    <a href="#calendar" title="Calendar"><i class="fas fa-calendar-alt"></i></a>
+    <a href="#account" title="Account"><i class="fas fa-user-circle"></i></a>
+  </div>
+</nav>
+
+        <!--<div class="search-container">
+          <input type="text" placeholder="Search..." />
+          <button>Go</button>
+        </div>-->
+      </div>
+    </nav>
+
+    <section id= "home" class="new-hero">
+      <div class="hero-content">
+        <h1>
+         
+          <span class="highlight-red">The National Council for Construction </span>
+        </h1>
+        <p>
+         mandated to regulate, promote and develop the construction industry in Zambia. 
+		 This portal provides streamlined access to registration forms and guidelines for contractors operating within the country.</p>
+    </section>
+
+<div class="form-links">
+  <!-- First row with 2 cards -->
+   <div class="form-row" style="display: flex; justify-content: center; gap: 1.5rem;">
+     <div class="form-card">
+      <h3><i class="fas fa-user-plus"></i> First Registration</h3>
+      <p>Apply for your initial NCC contractor registration and certification.</p>
+      <a href="firstReg.html">Open Form →</a>
+    </div>
+  <div class="form-row" style="display: flex; justify-content: center; gap: 1.5rem;">
+    <div class="form-card">
+      <h3><i class="fas fa-handshake"></i> Joint Venture Registration</h3>
+      <p>Register a partnership between two or more contractors for NCC certification.</p>
+      <a href="joint-venture.html">Open Form →</a>
+    </div>
+    <div class="form-card">
+      <h3><i class="fas fa-calendar-alt"></i> Short-Term Project Registration</h3>
+      <p>Foreign contractors can register for short-term project-based contracts.</p>
+      <a href="project-based.html">Open Form →</a>
+    </div>
+    <div class="form-card">
+      <h3><i class="fas fa-layer-group"></i> Grade 6 Additional Category</h3>
+      <p>Apply for additional categories under Grade 6 contractor registration.</p>
+      <a href="firstReg6-additional.html">Open Form →</a>
+    </div>
+  
+
+  <!-- Second row with 3 cards -->
+  <div class="form-row" style="display: flex; justify-content: center; gap: 1.5rem;">
+    <div class="form-card">
+      <h3><i class="fas fa-arrow-up"></i> Upgrading of Registration</h3>
+      <p>Upgrade your contractor grade and category with supporting documentation.</p>
+      <a href="upgrade.html">Open Form →</a>
+    </div><div class="form-card">
+      <h3><i class="fas fa-user-plus"></i> Renewal Form</h3>
+      <p>Register a partnership between two or more contractors for NCC certification.</p>
+      <a href="renewal.html">Open Form →</a>
+    </div></div>
+   
+    
+  </div>
+</div>
+
+  <div class="content" id="about">
+    <h2>About NCC Zambia</h2>
+    <p></p>
+  </div>
+
+  <div class="content" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:ncc@ncc.org.zm">ncc@ncc.org.zm</a></p>
+    <p>Phone: +260-211-247185</p>
+    <p>Address: Plot 1612/1623 Luchengo Road, Lusaka, Zambia</p>
+  </div>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Smooth scroll for nav links
+  document.querySelectorAll("nav a[href^='#']").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute("href"));
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 60,
+          behavior: "smooth"
+});
+}
+});
+});
+
+  // Highlight active section in navbar
+  const sections = document.querySelectorAll(".content");
+  const navLinks = document.querySelectorAll("nav a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 100 && rect.bottom>= 100) {
+        current = section.id;
+}
+});
+
+    navLinks.forEach(link => {
+      link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+});
+});
+});
+</script>
+</body>
+</html>

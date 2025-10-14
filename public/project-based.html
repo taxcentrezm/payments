@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Short-Term Project Registration – NCC Zambia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="logo.css" />
+  <style>
+  
+  .step-indicator {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.step-label {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: 3px solid #ccc;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.step-label i {
+  margin-right: 6px;
+}
+
+.step-label.active {
+  border-bottom: 3px solid #0078d4;
+  color: #0078d4;
+  font-weight: bold;
+  background: rgba(0, 120, 212, 0.05);
+  border-radius: 6px;
+}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(to right, #f0f0f5, #e6e6ec);
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+}
+
+.container {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+}
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+}
+
+    fieldset {
+      border: none;
+      margin-bottom: 2rem;
+}
+
+    legend {
+      font-weight: bold;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+}
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+}
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+}
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+}
+
+    canvas {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      cursor: crosshair;
+      margin-bottom: 0.5rem;
+}
+
+    button {
+      background-color: #007aff;
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+}
+
+    button:hover {
+      background-color: #005bb5;
+}
+  </style>
+  </head>
+<body>
+    <div class="container">
+    <div class="logo-row">
+      <img src="ncc.png" alt="NCC Logo" />
+      <img src="tros1.png" alt="TaxMan Zambia Logo" />
+    </div>
+   <center><h1> REGISTRATION OF CONTRACTORS - 2025 </h1></center>
+    <h2>Short Term Project Based Application</h2>
+	<center><p style="font-size:10px"><i>[In terms of the National Council for Construction Act No.
+	10 of 2020 of the Laws of Zambia]</i></P></center>
+</br></br></center>
+    
+
+    <div class="step-indicator">
+  <div class="step-label active"><i class="fas fa-info-circle"></i> Project Info</div>
+  <div class="step-label"><i class="fas fa-map-marker-alt"></i> Location</div>
+  <div class="step-label"><i class="fas fa-user-tie"></i> Client</div>
+  <div class="step-label"><i class="fas fa-building"></i> Company</div>
+  <div class="step-label"><i class="fas fa-users"></i> Shareholders</div>
+  <div class="step-label"><i class="fas fa-tools"></i> Personnel</div>
+  <div class="step-label"><i class="fas fa-layer-group"></i> Specialist</div>
+  <div class="step-label"><i class="fas fa-file-signature"></i> Resolution</div>
+  <div class="step-label"><i class="fas fa-signature"></i> Declaration</div>
+  <div class="step-label"><i class="fas fa-clipboard-check"></i> Checklist</div>
+  <div class="step-label"><i class="fas fa-money-check-alt"></i> Payment</div>
+</div>
+
+    <form id="shortTermForm">
+      <!-- Project Info -->
+      <fieldset>
+        <legend>Project Information</legend>
+        <label>Project Name</label>
+        <input type="text" name="project_name" required />
+        <label>Total Project Value (ZMW)</label>
+        <input type="number" name="project_value" id="projectValue" required />
+        <label>Contract Period</label>
+        <input type="text" name="contract_period" required />
+        <label>Expected Start Date</label>
+        <input type="date" name="start_date" required />
+        <label>Expected Finish Date</label>
+        <input type="date" name="end_date" required />
+      </fieldset>
+
+      <!-- Location -->
+      <fieldset>
+        <legend>Project Location</legend>
+        <label>Plot/Stand No.</label>
+        <input type="text" name="plot_no" required />
+        <label>Street</label>
+        <input type="text" name="street" required />
+        <label>Suburb/Area/Township</label>
+        <input type="text" name="suburb" required />
+        <label>Province</label>
+        <input type="text" name="province" required />
+      </fieldset>
+
+      <!-- Client Details -->
+      <fieldset>
+        <legend>Client Details</legend>
+        <label>Physical Address</label>
+        <textarea name="client_physical" required></textarea>
+        <label>Postal Address</label>
+        <textarea name="client_postal" required></textarea>
+        <label>Email</label>
+        <input type="email" name="client_email" required />
+        <label>Tel No.</label>
+        <input type="tel" name="client_tel" required />
+        <label>Mobile Phone No.</label>
+        <input type="tel" name="client_mobile" required />
+      </fieldset>
+
+      <!-- Company Details -->
+      <fieldset>
+        <legend>Company Details</legend>
+        <label>Head Office Address (Outside Zambia)</label>
+        <textarea name="company_address" required></textarea>
+		<label>Email</label>
+        <input type="email" name="company_email" required />
+        <label>Tel No.</label>
+        <input type="tel" name="company_tel" required />
+        <label>Mobile Phone No.</label>
+        <input type="tel" name="company_mobile" required />
+      </fieldset>
+
+      <!-- Shareholders -->
+      <fieldset>
+        <legend>Shareholders & Directors</legend>
+        <label>Name</label>
+        <input type="text" name="shareholder_name" required />
+        <label>Passport/ID No.</label>
+        <input type="text" name="shareholder_id" required />
+        <label>Citizenship</label>
+        <input type="text" name="citizenship" required />
+        <label>Shareholding (%)</label>
+        <input type="number" name="shareholding" required />
+      </fieldset>
+
+      <!-- Technical Personnel -->
+      <fieldset>
+        <legend>Technical Personnel</legend>
+        <label>Name</label>
+        <input type="text" name="tech_name" required />
+        <label>Position</label>
+        <input type="text" name="tech_position" required />
+        <label>NRC/Passport No.</label>
+        <input type="text" name="tech_id" required />
+        <label>Mobile Phone</label>
+        <input type="tel" name="tech_mobile" required />
+      </fieldset>
+
+      <!-- Specialist Category -->
+      <fieldset>
+        <legend>Specialist Category</legend>
+        <label>Specialist Code</label>
+        <input type="text" name="specialist_code" required />
+        <label>Specialist Works (Full Description)</label>
+        <textarea name="specialist_description" required></textarea>
+      </fieldset>
+
+      <!-- Board Resolution -->
+      <fieldset>
+        <legend>Board Resolution</legend>
+        <label>Authorized Representative Name</label>
+        <input type="text" name="authorized_name" required />
+        <label>Shareholder Name</label>
+        <input type="text" name="shareholder1" required />
+        <label>Shareholder Name</label>
+        <input type="text" name="shareholder2" />
+      </fieldset>
+
+      <!-- Declaration -->
+      <fieldset>
+        <legend>Declaration</legend>
+        <label>Authorized Signatory</label>
+        <input type="text" name="signatory_name" required />
+        <label>Witness Name</label>
+        <input type="text" name="witness_name" required />
+        <label>Signature</label>
+        <canvas id="signaturePad" width="300" height="100"></canvas>
+        <button type="button" onclick="clearSignature()">Clear Signature</button>
+        <input type="hidden" name="signatureData" id="signatureData" />
+      </fieldset>
+
+      <!-- Scrutiny Checklist -->
+      <fieldset>
+        <legend>Scrutiny Checklist</legend>
+        <div id="checklistContainer"></div>
+      </fieldset>
+
+      <!-- Fee & Payment -->
+      <fieldset>
+        <legend>Fee & Payment</legend>
+        <label>Express Registration?</label>
+        <select name="express" id="express">
+          <option value="No">No</option>
+          <option value="Yes">Yes</option>
+        </select>
+        <label>Calculated Fee (ZMW)</label>
+        <input type="number" name="calculated_fee" id="calculatedFee" readonly />
+        <label>Select Bank Used</label>
+        <select name="bank" required>
+          <option value="">-- Select Bank --</option>
+          <option value="Access">Access Bank Zambia</option>
+          <option value="ABSA">ABSA Bank Zambia PLC</option>
+          <option value="FNB">First National Bank</option>
+          <option value="ZICB">Zambia Industrial Commercial Bank</option>
+          <option value="ZANACO">ZANACO</option>
+        </select>
+        <label>Upload Proof of Payment</label>
+        <input type="file" name="payment_proof" accept=".pdf,.jpg,.png" required />
+      </fieldset>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("shortTermForm");
+  const projectValueInput = document.getElementById("projectValue");
+  const expressSelect = document.getElementById("express");
+  const feeInput = document.getElementById("calculatedFee");
+  const checklistContainer = document.getElementById("checklistContainer");
+
+  // Fee structure based on project value
+  const feeTable = [
+    { max: 500000, standard: 17500, express: 27850},
+    { max: 1000000, standard: 26950, express: 40000},
+    { max: 5000000, standard: 40000, express: 65500},
+    { max: Infinity, standard: 70000, express: 120000}
+  ];
+
+  function updateFee() {
+    const value = parseFloat(projectValueInput.value) || 0;
+    const express = expressSelect.value === "Yes";
+    const feeBracket = feeTable.find(bracket => value <= bracket.max);
+    feeInput.value = express? feeBracket.express: feeBracket.standard;
+}
+
+  projectValueInput.addEventListener("input", updateFee);
+  expressSelect.addEventListener("change", updateFee);
+
+  // Signature pad logic
+  const canvas = document.getElementById("signaturePad");
+  const ctx = canvas.getContext("2d");
+  let drawing = false;
+
+  canvas.addEventListener("mousedown", () => drawing = true);
+  canvas.addEventListener("mouseup", () => drawing = false);
+  canvas.addEventListener("mouseout", () => drawing = false);
+  canvas.addEventListener("mousemove", e => {
+    if (!drawing) return;
+    const rect = canvas.getBoundingClientRect();
+    ctx.lineWidth = 2;
+    ctx.lineCap = "round";
+    ctx.strokeStyle = "#000";
+    ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+});
+
+  window.clearSignature = function () {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById("signatureData").value = "";
+};
+
+  // Checklist items from Appendix IV
+  const checklistItems = [
+    "Proof of Payment of NCC fees",
+    "Proof of Registration from Country of Origin",
+    "Shareholding Certificate from Country of Origin",
+    "Certificates and CVs for all staff coming into the country",
+    "Letter of Power of Attorney or Board Resolution",
+    "Letter of Contract Award from Client",
+    "Declaration signed by Contractor and Commissioner of Oaths",
+    "All copies must be certified and valid within 6 months"
+  ];
+
+  checklistContainer.innerHTML = checklistItems.map(item => `
+    <label><input type="checkbox" required /> ${item}</label>
+  `).join("");
+
+  // Form submission
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    document.getElementById("signatureData").value = canvas.toDataURL();
+    alert("✅ Short-Term Registration Application Submitted Successfully!");
+    form.reset();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    feeInput.value = "";
+});
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("form fieldset");
+  const stepLabels = document.querySelectorAll(".step-label");
+
+  window.addEventListener("scroll", () => {
+    let currentIndex = 0;
+    sections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 150 && rect.bottom>= 150) {
+        currentIndex = index;
+}
+});
+    stepLabels.forEach((label, index) => {
+      label.classList.toggle("active", index === currentIndex);
+});
+});
+});
+</script>
+</body>
+</html>

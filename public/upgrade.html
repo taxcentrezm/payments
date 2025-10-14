@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCC Zambia – Upgrade Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(to right, #f0f0f5, #e6e6ec);
+  margin: 0;
+  padding: 2rem;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.logo-row img {
+  max-width: 150px;
+  height: auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 2rem;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="text"] {
+  max-width: 100%;
+}
+
+button {
+  background-color: #007aff;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+.progress-container {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  height: 10px;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #007aff;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.step-label {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: 3px solid #ccc;
+  color: #666;
+}
+
+.step-label i {
+  margin-right: 6px;
+}
+
+.step-label.active {
+  border-bottom: 3px solid #007aff;
+  color: #007aff;
+  font-weight: bold;
+}
+
+canvas {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: crosshair;
+  margin-bottom: 0.5rem;
+}
+</style>
+  </head>
+  <body>
+  <div class="container">
+    <div class="logo-row">
+      <img src="ncc.png" alt="NCC Logo" />
+      <img src="tros1.png" alt="TaxMan Zambia Logo" />
+    </div>
+   <center><h1> REGISTRATION OF CONTRACTORS - 2026 </h1></center>
+    <h2>Application for Upgrading of Registration </h2>
+	<center><p style="font-size:10px"><i>[In terms of the National Council for Construction Act No.
+	10 of 2020 of the Laws of Zambia]</i></P></center>
+</br></br></center>
+    
+
+    <div class="step-indicator">
+      <div class="step-label active"><i class="fas fa-building"></i> Company Info</div>
+      <div class="step-label"><i class="fas fa-users"></i> Shareholders</div>
+      <div class="step-label"><i class="fas fa-tools"></i> Technical Data</div>
+      <div class="step-label"><i class="fas fa-truck"></i> Assets & Equipment</div>
+      <div class="step-label"><i class="fas fa-clipboard-list"></i> Contracts</div>
+      <div class="step-label"><i class="fas fa-user-check"></i> References</div>
+      <div class="step-label"><i class="fas fa-layer-group"></i> Grade & Category</div>
+      <div class="step-label"><i class="fas fa-signature"></i> Declaration</div>
+      <div class="step-label"><i class="fas fa-clipboard-check"></i> Checklist</div>
+      <div class="step-label"><i class="fas fa-money-check-alt"></i> Payment</div>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+   <form id="upgradeForm">
+  <!-- Section 1: Company Details -->
+  <fieldset id="section1">
+    <legend>Company Details</legend>
+    <div class="form-row">
+      <div class="form-group">
+    <input type="text" name="company_name" placeholder="Tax Return Online Solutions" required />
+  </div>
+  <div class="form-group">
+    <input type="text" name="physical_address" placeholder="Registered Physical Office Address" required>
+  </div>
+<div class="form-group">
+    <input type="text" name="town" placeholder="Lusaka Town" required />
+    </div>
+  </div>
+    <div class="form-row">
+<div class="form-group">
+    <input type="tel" name="phone" placeholder="+260 782 232 232" required />
+  </div>
+<div class="form-group">
+    <input type="tel" name="mobile" placeholder="0772 238 2382" required /></div>
+<div class="form-group">
+    <input type="email" name="email" placeholder="example@tax-centre.com" required />
+  </div>
+</div>
+  </fieldset>
+
+  <!-- Section 2: Shareholders & Directors -->
+  <fieldset id="section2">
+    <legend>Shareholders & Directors</legend>
+    <div class="form-row">
+<div class="form-group">
+    <input type="text" name="shareholder_name" placeholder="Shareholder Name" required />
+  </div>
+
+    <div class="form-group">
+    <input type="text" name="shareholder_nrc" placeholder="Shareholder NRC"required />
+</div>
+       
+       <div class="form-group">
+    <input type="number" name="shareholding" min="0" max="100" placeholder="Shareholding (%)" required />
+  </div><div class="form-group">
+    <select name="shareholder_status" required>
+      <option value="">-- Select Status --</option>
+      <option value="Citizen">Citizen</option>
+      <option value="Non-Citizen">Non-Citizen</option>
+    </select>
+</div>
+</div>
+  </fieldset>
+
+  <!-- Section 3: Technical Data -->
+  <fieldset id="section3">
+    <legend>Key Personnel</legend>
+    <label></label>
+    <div class="form-row">
+<div class="form-group">
+    <input type="text" name="professional_name" placeholder="Professional Staff Name"required />
+</div>
+<div class="form-group">
+    <input type="text" name="professional_qualification" placeholder="Qualification"required />
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+
+    <input type="text" name="professional_nrc" placeholder="NRC/Passport No."required />
+  </div>
+<div class="form-group">
+    <input type="tel" name="professional_mobile" placeholder="Mobile Phone"required />
+</div>
+<div class="form-group">
+    <input type="file" name="professional_cv" accept=".pdf,.doc,.docx" required />
+  </div>
+</div>
+  </fieldset>
+
+  <!-- Section 4: Assets & Equipment -->
+  <fieldset id="section4">
+    <legend>Assets & Equipment</legend>
+    <div class="form-row">
+<div class="form-group">
+
+    <label></label>
+     <input type="text" name="fixed_assets" placeholder="Fixed Assets Description"required>
+</div><div class="form-group">
+    <label></label>
+     <input type="text" name="equipment_list" required placeholder="Vehicles/Equipment Description">
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+    <label>Upload Proof of Ownership</label>
+    <input type="file" name="asset_proof" accept=".pdf,.jpg,.png" required />
+</div>
+
+<div class="form-group">
+    <label>Upload Registration Certificates</label>
+    <input type="file" name="equipment_proof" accept=".pdf,.jpg,.png" required />
+  </div>
+</div>
+  </fieldset>
+
+  <!-- Section 5: Contracts -->
+  <fieldset id="section5">
+    <legend>Completed & Ongoing Contracts</legend>
+    <div class="form-row">
+<div class="form-group">
+    <input type=" name="completed_projects" placeholder="Completed Projects"required></textarea>
+</div><div class="form-group">
+     <input type=" name="ongoing_projects" placeholder="Ongoing Projects" required></textarea>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+    <label>Upload Completion Certificates</label>
+    <input type="file" name="completion_certificates" accept=".pdf,.jpg,.png" required />
+</div>
+<div class="form-group">
+    <label>Upload Contract Documents</label>
+    <input type="file" name="contract_docs" accept=".pdf,.jpg,.png" required />
+  </div>
+</div>
+  </fieldset>
+
+  <!-- Section 6: References -->
+  <fieldset id="section6">
+    <legend>Referees & Clients</legend>
+    <div class="form-row">
+<div class="form-group">
+    <input type="text" name="referee_name" placeholder="Technical Referee Name" required />
+</div>
+<div class="form-group">
+    <input type="text" name="referee_firm" placeholder="Name Of Firm" required />
+</div>
+<div class="form-group">
+    <input type="tel" name="referee_phone" placeholder="+260-882-232-322" required />
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+    <input type="email" name="referee_email" placeholder="example@tax-centre.com" required />
+</div>
+<div class="form-group">
+    <input type="text" name="client_name" placeholder="Client Reference Name" required />
+</div>
+<div class="form-group">
+<input type="text" name="client_org"  placeholder="Organization" required />
+</div>
+</div>
+  </fieldset>
+
+  <!-- Section 7: Grade & Category -->
+  <fieldset id="section7">
+    <legend>Grade & Category</legend>
+    <div class="form-row">
+    <div class="form-group">
+  <label>Company Type:</label>
+    <select name="companyType" id="companyType" required>
+      <option value="">Select Type</option>
+      <option value="zambian">Zambian</option>
+      <option value="foreign">Foreign</option>
+         <option value="specialist_local">Local Specialist</option>
+  <option value="specialist_foreign">Foreign Specialist</option>
+    </select>
+  </div>
+  <div class="form-group">
+<label>Current Grade</label>
+    <select name="current_grade" required>
+      <option value="">-- Select --</option>
+      <option value="6">6</option>
+      <option value="5">5</option>
+      <option value="4">4</option>
+      <option value="3">3</option>
+      <option value="2">2</option>
+    </select>
+</div>
+  <div class="form-group">
+  <label>Upgrade To Grade:  </label>
+    <select name="feeGrade" id="feeGrade" required>
+      <option value="">Select Grade</option>
+    </select>
+</div>
+</div>
+  <div class="form-row">
+  <div class="form-group">
+    <select name="category" required>
+      <option value="">-- Select Category--</option>
+      <option value="B">Building</option>
+      <option value="C">Civil</option>
+      <option value="R">Roads</option>
+      <option value="E">Electrical</option>
+      <option value="M">Mining</option>
+      <option value="ME">Mechanical</option>
+      <option value="S">Specialist</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <input type="text" name="sub_category" placeholder="Sub-Category (if applicable)"/>
+</div>
+  <div class="form-group">
+    <input type="number" name="registration_fee" placeholder="calculated Registration fee" readonly />
+  </div>
+</div>
+  </fieldset>
+
+  <!-- Section 8: Declaration -->
+  <fieldset id="section8">
+    <legend>Declaration</legend>
+     <div class="form-row">
+  <div class="form-group">
+    <input type="text" name="declaration" placeholder="Declaration Statement" required>
+</div>
+ <div class="form-group">
+    <input type="text" name="declarer_name" placeholder="Declarer Name" required />
+</div> <div class="form-group">
+    <input type="text" name="witness_name"  placeholder="Witness Name" required />
+</div>
+</div>
+  </fieldset>
+
+  <!-- Section 9: Checklist -->
+  <fieldset id="section9">
+    <legend>Scrutiny Checklist</legend>
+     <div class="form-row">
+  <div class="form-group">
+    <div id="checklistContainer">
+      <!-- Checklist items will be injected here based on grade -->
+    </div>
+  </div>
+    <div class="form-group">
+    <label>
+          <input type="checkbox" name="declaration" required />
+          I declare that all information provided is true and complete.
+        </label>
+  </div>
+</div>
+  </fieldset>
+
+  <!-- Section 10: Payment -->
+  <fieldset id="section10">
+    <legend>Payment Information</legend>
+    <div class="form-row">
+  <div class="form-group">
+    <label>Upload Proof of Payment</label>
+    <input type="file" name="payment_proof" accept=".pdf,.jpg,.png" required />
+</div>
+<div class="form-group">
+    <label>Select Bank Used</label>
+    <select name="bank" required>
+      <option value="">-- Select Bank --</option>
+      <option value="ABSA">ABSA Bank Zambia PLC</option>
+      <option value="Access">Access Bank Zambia</option>
+      <option value="FNB">First National Bank</option>
+      <option value="ZANACO">ZANACO</option>
+      <option value="ZICB">Zambia Industrial Commercial Bank</option>
+    </select>
+  </div>
+</div>
+  </fieldset>
+
+  <button type="submit">Submit Application</button>
+</form>
+  </div>
+  <div id="successPopup" class="popup" style="display:none;">
+  <center><div class="popup-content">
+    <h2>✅ Submission Successful!</h2>
+    <p>Your Upgrade form application has been submitted.</p>
+    <button onclick="showServices()">View Tax Returns Online Services</button></center>
+  </div>
+</div>
+<div id="servicesPopup" class="popup" style="display:none;">
+  <div class="popup-content scrollable-modal">
+    <h2 class="modal-title">Tax Returns Online Services</h2>
+    <div class="form-card-grid">
+      <!-- Each card links to taxman.co.zm -->
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-file-alt"></i>
+        <h3>Incomplete Records</h3>
+        <p>We help reconstruct missing financial data to ensure accurate reporting and compliance.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-exchange-alt"></i>
+        <h3>Debtors &amp; Creditors</h3>
+        <p>Track who owes you and who you owe with clear reconciliation tools and reports.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-book"></i>
+        <h3>Cash Book &amp; Ledger</h3>
+        <p>Maintain organized records of all transactions for full financial visibility.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-users"></i>
+        <h3>Payroll Management</h3>
+        <p>Automate payroll, NAPSA, and PAYE calculations with secure employee data handling.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fab fa-sass"></i>
+        <h3>SAGE Setup</h3>
+        <p>Get professional configuration and onboarding for your SAGE accounting system.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-building"></i>
+        <h3>ZRA Agency</h3>
+        <p>We act as your ZRA liaison, simplifying tax registration, filing, and Smart Invoice setup.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-receipt"></i>
+        <h3>Smart Invoicing</h3>
+        <p>Generate ZRA-compliant invoices with automated tax calculations and digital tracking.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-seedling"></i>
+        <h3>Agro &amp; SME Systems</h3>
+        <p>Custom tools for agriculture and small businesses to manage operations and growth.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-hard-hat"></i>
+        <h3>National Council Of Construction</h3>
+        <p>Support for registration, compliance, and digital systems tailored to construction firms.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-network-wired"></i>
+        <h3>Web, System Dev &amp; ERPs</h3>
+        <p>Build custom websites, business systems, and ERP platforms to streamline your workflow.</p>
+      </a>
+    </div>
+    <button onclick="window.location.href='NCC.html'" class="close-btn">Close</button>
+  </div>
+  </body>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("upgradeForm");
+  const progressBar = document.getElementById("progressBar");
+  const sections = document.querySelectorAll("fieldset");
+  const stepLabels = document.querySelectorAll(".step-label");
+
+  // Progress bar logic
+  form.addEventListener("input", () => {
+    const inputs = form.querySelectorAll("input, select, textarea");
+    const filled = Array.from(inputs).filter(input => {
+      if (input.type === "checkbox" || input.type === "radio") {
+        return input.checked;
+}
+      return input.value.trim()!== "";
+}).length;
+
+    const total = inputs.length;
+    const progress = Math.round((filled / total) * 100);
+    progressBar.style.width = '${progress}%';
+});
+
+  // Step indicator logic
+  window.addEventListener("scroll", () => {
+    let currentIndex = 0;
+    sections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 150 && rect.bottom>= 150) {
+        currentIndex = index;
+}
+});
+    stepLabels.forEach((label, index) => {
+      label.classList.toggle("active", index === currentIndex);
+});
+});
+
+  // Signature pad logic
+  const canvas = document.getElementById("signaturePad");
+  const ctx = canvas?.getContext("2d");
+  let drawing = false;
+
+  if (canvas && ctx) {
+    canvas.addEventListener("mousedown", () => drawing = true);
+    canvas.addEventListener("mouseup", () => drawing = false);
+    canvas.addEventListener("mouseout", () => drawing = false);
+    canvas.addEventListener("mousemove", e => {
+      if (!drawing) return;
+      const rect = canvas.getBoundingClientRect();
+      ctx.lineWidth = 2;
+      ctx.lineCap = "round";
+      ctx.strokeStyle = "#000";
+      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+});
+
+    window.clearSignature = function () {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      document.getElementById("signatureData").value = "";
+};
+}
+
+  
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const companyTypeSelect = document.getElementById('companyType');
+  const feeGradeSelect = document.getElementById('feeGrade');
+  const registrationFeeInput = document.querySelector("input[name='registration_fee']");
+const fees = {
+  zambian: {
+    grade1: 16666.80,
+    grade2: 12500.10,
+    grade3: 8333.40,
+    grade4: 2499.90,
+    grade5: 1250.10,
+    grade6: 833.40
+  },
+  foreign: {
+    annual: {
+      grade1: 100000,
+      grade2: 75000
+    }
+  },
+  specialist: {
+    local: {
+      registration: {
+        classA: 7750,
+        classB: 1875
+      },
+      express: {
+        classA: 15500,
+        classB: 3750
+      }
+    },
+    foreign: {
+      registration: {
+        classA: 100000
+      },
+      express: {
+        classA: 200000
+      }
+    }
+  }
+
+};
+
+companyTypeSelect.addEventListener('change', () => {
+  const companyType = companyTypeSelect.value;
+  feeGradeSelect.innerHTML = '<option value="">Select Grade</option>';
+  if (companyType === 'zambian') {
+    Object.keys(fees.zambian).forEach(grade => {
+      const option = document.createElement('option');
+      option.value = grade;
+      option.text = grade.charAt(0).toUpperCase() + grade.slice(1);
+      feeGradeSelect.appendChild(option);
+    });
+  } else if (companyType === 'foreign') {
+    Object.keys(fees.foreign.annual).forEach(grade => {
+      const option = document.createElement('option');
+      option.value = grade;
+      option.text = grade.charAt(0).toUpperCase() + grade.slice(1);
+      feeGradeSelect.appendChild(option);
+    });
+  } else if (companyType === 'specialist_local') {
+    ['classA', 'classB'].forEach((classValue) => {
+      const option = document.createElement('option');
+      option.value = classValue;
+      option.text = `Class ${classValue.charAt(classValue.length - 1).toUpperCase()}`;
+      feeGradeSelect.appendChild(option);
+    });
+  } else if (companyType === 'specialist_foreign') {
+    const option = document.createElement('option');
+    option.value = 'classA';
+    option.text = 'Class A';
+    feeGradeSelect.appendChild(option);
+  }
+  calculateFee();
+});
+
+feeGradeSelect.addEventListener('change', calculateFee);
+
+function calculateFee() {
+  const companyType = companyTypeSelect.value;
+  const feeGrade = feeGradeSelect.value;
+  let registrationFee = 0;
+  if (companyType === 'zambian') {
+    registrationFee = fees.zambian[feeGrade] || 0;
+  } else if (companyType === 'foreign') {
+    registrationFee = fees.foreign.annual[feeGrade] || 0;
+  } else if (companyType === 'specialist_local') {
+    if (feeGrade === 'classA') {
+      registrationFee = fees.specialist.local.registration.classA || 0;
+    } else if (feeGrade === 'classB') {
+      registrationFee = fees.specialist.local.registration.classB || 0;
+    }
+  } else if (companyType === 'specialist_foreign') {
+    registrationFee = fees.specialist.foreign.registration.classA || 0;
+  }
+  registrationFeeInput.value = registrationFee.toFixed(2);
+}
+
+
+
+
+
+  // Dynamic checklist based on grade
+  const checklistContainer = document.getElementById("checklistContainer");
+  const checklistItems = {
+    "1": [
+      "Original Proof of Payment",
+      "Valid Workers' Compensation Registration",
+      "Valid NAPSA Registration",
+      "Audited Accounts",
+      "Completion Certificates",
+      "Proof of Asset Ownership",
+      "Certified Academic Certificates",
+      "Declaration Signed",
+      "Power of Attorney (if applicable)"
+    ],
+    "5": [
+      "Original Proof of Payment",
+      "Completion Certificates",
+      "Proof of Asset Ownership",
+      "Certified Academic Certificates",
+      "Declaration Signed",
+      "Power of Attorney (if applicable)"
+    ]
+};
+
+if (gradeSelect && checklistContainer) {
+    gradeSelect.addEventListener("change", () => {
+      const grade = gradeSelect.value;
+      const items = checklistItems[grade] || [];
+      checklistContainer.innerHTML = items.map(item => `
+        <label><input type="checkbox" required /> ${item}</label>
+      `).join("");
+});
+}
+
+  // Form submission
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // Save signature data
+    if (canvas && ctx) {
+      const dataURL = canvas.toDataURL();
+      document.getElementById("signatureData").value = dataURL;
+}
+
+  
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form'); // Make sure this matches your actual form
+  const successPopup = document.getElementById('successPopup');
+  const servicesPopup = document.getElementById('servicesPopup');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // ✅ Prevent page reload
+    successPopup.style.display = 'block'; // ✅ Show success popup
+});
+
+  window.showServices = function() {
+    successPopup.style.display = 'none';
+    servicesPopup.style.display = 'block';
+};
+});
+</script>
+</html>

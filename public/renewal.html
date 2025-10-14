@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCC Zambia – Renewal Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+<style>
+  .watermark-container {
+  position: relative;
+}
+
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.2; 
+  width: 80%;    
+  z-index: 0;
+}
+  .form-row {
+  display: flex;
+  gap: 30px; 
+  flex-wrap: wrap; 
+  padding-top: 12px;
+  padding-bottom: 5px;
+}
+
+.form-group {
+  flex: 1; 
+  min-width:100px; 
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(to right, #f0f0f5, #e6e6ec);
+  margin: 0;
+  padding: 2rem;
+  color: #333;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+h1, h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 1.5rem;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  background-color: #d71921;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background-color: #a71319;
+}
+
+.ownership-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.progress-container {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  height: 10px;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #d71921;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.step-label {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: 3px solid #ccc;
+  color: #8f1016;
+}
+
+.step-label i {
+  margin-right: 6px;
+}
+
+.step-label.active {
+  border-bottom: 3px solid #d71921;
+  color: #5f0b0e;
+  font-weight: bold;
+}
+
+/* Logo Row — no background */
+.logo-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  gap: 2rem;
+  background: none; /* No background */
+}
+
+.logo-row img {
+  max-width: 150px;
+  height: auto;
+  display: block;
+}
+</style>
+
+</head>
+<body>
+  <div class="container"><div class="watermark-container">
+  <img src="ncc.png" alt="NCC Logo" class="watermark" />
+<div class="logo-row">
+  <img src="ncc.png" alt="NCC Logo" />
+  <img src="tros1.png" alt="Taxman Zambia logo" />
+</div>
+    <h1> National Council Of Construction Zambia </h1>
+	<center><p>Contractor Renewal Form 2026</P></center>
+	</br>
+  <form id="renewalForm">
+	<div class="step-indicator">
+  <div class="step-label active"><i class="fas fa-building"></i> Company Details</div>
+  <div class="step-label"><i class="fas fa-layer-group"></i> Grade & Category</div>
+  <div class="step-label"><i class="fas fa-check-circle"></i> Declaration</div>
+  <div class="step-label"><i class="fas fa-users"></i> Shareholders & Ownership</div>
+  <div class="step-label"><i class="fas fa-project-diagram"></i> Projects</div>
+  <div class="step-label"><i class="fas fa-money-check-alt"></i> Fees & Payment</div>
+  <div class="step-label"><i class="fas fa-clipboard-check"></i> Scrutiny Checklist</div>
+</div>
+      <!-- Section 1: Company Details -->
+      <fieldset>
+        <legend>1. Company Details</legend>
+        
+          <input type="text" name="companyName" placeholder="Tax Returns Online  Solutions " required />
+        <div class="form-row">
+          <div class="form-group">
+          <input type="text" name="physicalAddress" placeholder="Registered Physical Address"required />
+        </div>
+        <div class="form-group">
+          <input type="tel" name="phone" placeholder="+260-766-382-728"required />
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="example@tax-centre.com" required />
+        </div>
+      </div>
+      </fieldset>
+
+      <!-- Section 2: Grade & Category -->
+      <fieldset>
+        <legend>2. Grade & Category</legend>
+        <div class="form-row">
+          <div class="form-group">
+          <select name="grade" required>
+            <option value="">Select Grade</option>
+            <option value="1">Grade 1</option>
+            <option value="2">Grade 2</option>
+            <option value="3">Grade 3</option>
+            <option value="4">Grade 4</option>
+            <option value="5">Grade 5</option>
+            <option value="6">Grade 6</option>
+          </select>
+       </div>
+       <div class="form-group">
+          <select name="category" required>
+            <option value="">Select Category</option>
+            <option value="B">Building</option>
+            <option value="C">Civil</option>
+            <option value="R">Roads</option>
+            <option value="E">Electrical</option>
+            <option value="ME">Mechanical</option>
+          </select>
+        </div>
+      </div>
+      </fieldset>
+
+      <!-- Section 3: Declaration -->
+      <fieldset>
+        <div class="form-row">
+          <div class="form-group">
+        <legend>3. Declaration</legend>
+        <label>
+          <input type="checkbox" name="declaration" required />
+          I declare that all information provided is true and complete.
+        </label>
+      </div>
+      <div class="form-group">
+        <legend>4. Shareholders & Ownership</legend>
+  <label>Upload PACRA Printout:
+    <input type="file" name="pacraPrintout" accept=".pdf,.jpg,.png" />
+  </label>
+</div>
+</div>
+      </fieldset>
+
+      <!-- Section 4: Shareholders & Ownership -->
+<fieldset>
+  
+
+  <div class="ownership-options">
+    <label><input type="radio" name="ownership" value="maleOwned" required /> Male Owned (100%)</label>
+    <label><input type="radio" name="ownership" value="maleDominated" /> Male Dominated (>50%)</label>
+    <label><input type="radio" name="ownership" value="femaleOwned" /> Female Owned (100%)</label>
+    <label><input type="radio" name="ownership" value="femaleDominated" /> Female Dominated (>50%)</label>
+    <label><input type="radio" name="ownership" value="equalShares" /> Equal Shares (50/50)</label>
+    <label><input type="radio" name="ownership" value="corporateShares" /> Corporate Shares</label>
+  </div>
+</fieldset>
+
+<!-- Section 5: Projects -->
+<fieldset>
+  <legend>5. Projects</legend>
+  <label>Ongoing Projects:
+    <textarea name="ongoingProjects" rows="4" placeholder="List project name, amount, location, dates, registration no."></textarea>
+  </label>
+  <label>Completed Projects (Previous Year):
+    <textarea name="completedProjects" rows="4" placeholder="List project name, amount, location, dates, registration no."></textarea>
+  </label>
+</fieldset>
+
+<!-- Section 6: Fees & Payment -->
+<fieldset>
+  <legend>6. Fees & Payment</legend>
+  <div class="form-row">
+    <div class="form-group">
+  <label>Company Type:</label>
+    <select name="companyType" id="companyType" required>
+      <option value="">Select Type</option>
+      <option value="zambian">Zambian</option>
+      <option value="foreign">Foreign</option>
+         <option value="specialist_local">Local Specialist</option>
+  <option value="specialist_foreign">Foreign Specialist</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+  <label>Grade:  </label>
+    <select name="feeGrade" id="feeGrade" required>
+      <option value="">Select Grade</option>
+    </select>
+</div>
+<div class="form-group">
+  <label>Month of Renewal:</label>
+    <input type="date" id="renewalDate"/>
+</div>
+</div><br/>
+  <button id="calculateFee">Calculate Fee</button>
+  <p id="feeResult"></p>
+</fieldset>
+
+<!-- Section 7: Scrutiny Checklist -->
+<fieldset>
+  <legend>7. Scrutiny Checklist</legend>
+   <div class="form-row">
+    <div class="form-group">
+  <label><input type="checkbox" name="proofOfPayment" required /> Original Proof of Payment</label>
+</div>
+<div class="form-group">
+  <label><input type="checkbox" name="pacraAttached" required /> Valid PACRA Printout or Share Register</label>
+</div>
+<div class="form-group">
+  <label><input type="checkbox" name="declarationSigned" required /> Signed Declaration (Page 3)</label>
+</div>
+<div class="form-group">
+  <label><input type="checkbox" name="powerOfAttorney" /> Power of Attorney (if applicable)</label>
+</div>
+</div>
+</fieldset>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+</div>
+<div id="successPopup" class="popup" style="display:none;">
+  <center><div class="popup-content">
+    <h2>✅ Submission Successful!</h2>
+    <p>Your Renewal form application has been submitted.</p>
+    <button onclick="showServices()">View Tax Returns Online Services</button></center>
+  </div>
+</div>
+<div id="servicesPopup" class="popup" style="display:none;">
+  <div class="popup-content scrollable-modal">
+    <h2 class="modal-title">Tax Returns Online Services</h2>
+    <div class="form-card-grid">
+      <!-- Each card links to taxman.co.zm -->
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-file-alt"></i>
+        <h3>Incomplete Records</h3>
+        <p>We help reconstruct missing financial data to ensure accurate reporting and compliance.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-exchange-alt"></i>
+        <h3>Debtors &amp; Creditors</h3>
+        <p>Track who owes you and who you owe with clear reconciliation tools and reports.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-book"></i>
+        <h3>Cash Book &amp; Ledger</h3>
+        <p>Maintain organized records of all transactions for full financial visibility.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-users"></i>
+        <h3>Payroll Management</h3>
+        <p>Automate payroll, NAPSA, and PAYE calculations with secure employee data handling.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fab fa-sass"></i>
+        <h3>SAGE Setup</h3>
+        <p>Get professional configuration and onboarding for your SAGE accounting system.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-building"></i>
+        <h3>ZRA Agency</h3>
+        <p>We act as your ZRA liaison, simplifying tax registration, filing, and Smart Invoice setup.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-receipt"></i>
+        <h3>Smart Invoicing</h3>
+        <p>Generate ZRA-compliant invoices with automated tax calculations and digital tracking.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-seedling"></i>
+        <h3>Agro &amp; SME Systems</h3>
+        <p>Custom tools for agriculture and small businesses to manage operations and growth.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-hard-hat"></i>
+        <h3>National Council Of Construction</h3>
+        <p>Support for registration, compliance, and digital systems tailored to construction firms.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-network-wired"></i>
+        <h3>Web, System Dev &amp; ERPs</h3>
+        <p>Build custom websites, business systems, and ERP platforms to streamline your workflow.</p>
+      </a>
+    </div>
+    <button onclick="window.location.href='NCC.html'" class="close-btn">Close</button>
+  </div>
+<script src="logic.js"></script>
+<script>
+const progressBar = document.querySelector('.progress-bar'); // Define progressBar variable
+const form = document.getElementById("renewalForm");
+const sections = document.querySelectorAll("fieldset");
+const stepLabels = document.querySelectorAll('.step-label');
+
+// Function to update the active step label
+function updateActiveStep(index) {
+  stepLabels.forEach((label, i) => {
+    if (i <= index) {
+      label.classList.add('active');
+    } else {
+      label.classList.remove('active');
+    }
+  });
+}
+
+// Example usage:
+updateActiveStep(0);
+
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form'); // Make sure this matches your actual form
+  const successPopup = document.getElementById('successPopup');
+  const servicesPopup = document.getElementById('servicesPopup');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // ✅ Prevent page reload
+    successPopup.style.display = 'block'; // ✅ Show success popup
+});
+
+  window.showServices = function() {
+    successPopup.style.display = 'none';
+    servicesPopup.style.display = 'block';
+};
+});
+</script>
+</body>
+</html>

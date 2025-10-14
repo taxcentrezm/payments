@@ -1,0 +1,214 @@
+.watermark-container {
+  position: relative;
+}
+
+.watermark {
+ position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.2; /* Adjust for visibility */
+  width: 80%;    /* Adjust size as needed */
+  z-index: 0;
+   pointer-events: none;
+   repeat: repeat;
+}
+  .form-row {
+  display: flex;
+  gap: 30px; 
+  flex-wrap: wrap; 
+  padding-top: 12px;
+  padding-bottom: 5px;
+}
+
+.form-group {
+  flex: 1; /* each field takes equal space */
+  min-width:100px; /* prevents fields from shrinking too much */
+}
+
+.disabled-input {
+  background-color: #f0f0f0; /* light gray background */
+  color: #999999;            /* dimmed text color */
+  border: 1px solid #ccc;    /* subtle border */
+  cursor: not-allowed;       /* visual cue for disabled state */
+}
+
+/* === Services Section === */
+.form-services-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-header h1 {
+  font-size: 2.5rem;
+  color: #1E4E8C;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* === Grid Layout === */
+.form-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === Individual Card === */
+.form-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  background-color: #f0f8ff;
+}
+
+/* === Icon Styling === */
+.form-card i {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  color: #117A65; /* Zambian green */
+}
+
+/* === Title & Description === */
+.form-card h3 {
+  font-size: 1.2rem;
+  margin: 12px 0 8px;
+  color: #1E4E8C;
+  font-weight: 600;
+}
+
+.form-card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* === Responsive Layout === */
+@media (max-width: 992px) {
+.form-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.section-header h1 {
+    font-size: 2rem;
+}
+
+.section-header p {
+    font-size: 1rem;
+}
+}
+
+@media (max-width: 600px) {
+.form-card-grid {
+    grid-template-columns: 1fr;
+}
+
+.form-card {
+    padding: 24px 16px;
+}
+
+.form-card i {
+    font-size: 1.8rem;
+}
+
+.form-card h3 {
+    font-size: 1.1rem;
+}
+
+.form-card p {
+    font-size: 0.9rem;
+}
+}
+/* Scrollable Modal */
+.scrollable-modal {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Modal Title */
+.modal-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #1E4E8C;
+  margin-bottom: 20px;
+}
+
+/* Close Button */
+.close-btn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #1E4E8C;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.close-btn:hover {
+  background-color: #1453a3;
+}
+
+/* Make cards clickable */
+.form-card {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.form-card:hover {
+  background-color: #f0f8ff;
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 50px;
+  width: 92%;
+  height: 88%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  z-index: 0;
+  flex-wrap: nowrap;
+  align-content: center;
+}
+
+.popup-content {
+    background: white;
+    padding-top: 10%;
+    padding: 50px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 700;
+    width: 10;
+}
+

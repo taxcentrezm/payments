@@ -1,0 +1,570 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCC Zambia – Renewal Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="logo.css" />
+  <link rel="stylesheet" href="styles.css"/>
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(to right, #f0f0f5, #e6e6ec);
+  margin: 0;
+  padding: 2rem;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 2rem;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="text"] {
+  max-width: 100%;
+}
+
+button {
+  background-color: #007aff;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+.progress-container {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  height: 10px;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #007aff;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.step-indicator {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.step-label {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem;
+  border-bottom: 3px solid #ccc;
+  color: #666;
+}
+
+.step-label i {
+  margin-right: 6px;
+}
+
+.step-label.active {
+  border-bottom: 3px solid #007aff;
+  color: #007aff;
+  font-weight: bold;
+}
+
+/* Signature Canvas */
+canvas {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: crosshair;
+  margin-bottom: 0.5rem;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+<div class="logo-row">
+  <img src="ncc.png" alt="NCC Logo" />
+  <img src="tros1.png" alt="Taxman Zambia logo" />
+</div><center>
+    <h1> REGISTRATION OF CONTRACTORS - 2025 </h1>
+	<h3>JOINT VENTURE REGISTRATION RENEWAL</h3> 
+	<p style="font-size:10px"><i>[In terms of the National Council for Construction Act No. 
+	13 of 2003 of the Laws of Zambia]</i></P></center>
+</br></br>
+    <!-- Step Indicator -->
+    <div class="step-indicator">
+      <div class="step-label active"><i class="fas fa-user-tie"></i> Lead Partner</div>
+      <div class="step-label"><i class="fas fa-user-friends"></i> Other Partner</div>
+      <div class="step-label"><i class="fas fa-layer-group"></i> Category & Grade</div>
+      <div class="step-label"><i class="fas fa-file-contract"></i> JV Agreement</div>
+      <div class="step-label"><i class="fas fa-signature"></i> Declaration</div>
+      <div class="step-label"><i class="fas fa-clipboard-check"></i> Checklist</div>
+      <div class="step-label"><i class="fas fa-money-check-alt"></i> Payment</div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Form Start -->
+    <form id="jvForm">
+      <!-- Section 1: Lead Partner -->
+      <fieldset id="section1">
+        <legend>Lead Partner Information</legend>
+        <div class="form-row">
+          <div class="form-group">
+       
+       <input type="text" name="lead_company" placeholder="Company Name & Address" required>
+</div><div class="form-group">
+        
+        <input type="text" name="lead_director" placeholder="Director/Shareholder Name"  />
+</div>
+</div>
+<div class="form-row">
+
+<div class="form-group">
+        
+        <input type="email" name="lead_email" placeholder="example@tax-centre.com" required />
+      </div>
+<div class="form-group">
+      
+        <input type="tel" name="lead_cell"placeholder="+260-887-887-997"  />
+</div><div class="form-group">
+        
+        <input type="tel" name="lead_tel" placeholder="077 883 342 232" required />
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+       
+        <input type="text" name="lead_grade" placeholder="NCC Grade & Category"  />
+</div>
+<div class="form-group">
+        
+        <input type="number" name="lead_turnover"placeholder="Highest Annual Turnover"  />
+</div>
+<div class="form-group">
+        
+        <input type="text" name="lead_serial" placeholder="NCC Certificate Serial No." />
+      </div>
+</div>
+<div class="form-row">
+<div class="form-group">
+        <canvas id="signaturePadLead" width="300" height="100" style="border:1px solid #ccc; border-radius:8px;"></canvas>
+    </div>
+      <div class="form-group"><button type="button" onclick="clearSignature('Lead')">Clear Signature</button>
+      </div></div>
+        <input type="hidden" name="lead_signature_data" id="signatureDataLead" />
+      
+    
+      </fieldset>
+
+      <!-- Section 2: Other Partner -->
+      <fieldset id="section2">
+
+        <legend>Other Partner Information</legend>
+        <div class="form-row">
+<div class="form-group">
+        
+         <input type="text" name="partner_company" placeholder="Company Name & Address" required></textarea>
+</div><div class="form-group">
+        
+        <input type="text" name="partner_director" placeholder="Director/Shareholder Name"/>
+</div><div class="form-group">
+        
+        <input type="text" name="partner_grade" placeholder="NCC Grade & Category"/>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+        
+        <input type="tel" name="partner_tel" placeholder="081 322 323 432"required />
+</div>
+<div class="form-group">
+        
+        <input type="email" name="partner_email" placeholder="example@tax-centre.com" required />
+</div>
+<div class="form-group">
+        
+        <input type="tel" name="partner_cell" placeholder="+260-562-987-232" />
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+       
+        <input type="number" name="partner_turnover" placeholder="Highest Annual Turnover"/>
+</div>
+<div class="form-group">
+        
+        <input type="text" name="partner_serial" placeholder="NCC Certificate Serial No."/>
+</div>
+</div>
+<div class="form-row">
+
+<div class="form-group">
+        <canvas id="signaturePadPartner" width="300" height="100" style="border:1px solid #ccc; border-radius:8px;" placeholder="Signature"></canvas>
+      </div>
+      <div class="form-group">
+        <button type="button" onclick="clearSignature('Partner')">Clear Signature</button>
+      </div>
+    </div>
+        <input type="hidden" name="partner_signature_data" id="signatureDataPartner" />
+      </fieldset>
+
+      <!-- Section 3: Category & Grade -->
+      <fieldset id="section3">
+        <legend>Category & Grade Selection</legend>
+        <div class="form-row">
+          <div class="form-group">
+        <select name="main_category" required>
+          <option value="">-- Select Main Category--</option>
+          <option value="B">Building</option>
+          <option value="C">Civil</option>
+          <option value="E">Electrical</option>
+          <option value="M">Mining</option>
+          <option value="ME">Mechanical</option>
+          <option value="R">Roads</option>
+          <option value="S">Specialist</option>
+        </select>
+      </div>
+      <div class="form-group">
+    
+        <select name="grade" required>
+          <option value="">-- Select Grade --</option>
+          <option value="1">Grade 1</option>
+          <option value="2">Grade 2</option>
+          <option value="3">Grade 3</option>
+          <option value="4">Grade 4</option>
+          <option value="5">Grade 5</option>
+          <option value="6">Grade 6</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="text" name="sub_category" placeholder="Sub-Category (if applicable)" />
+      </div><div class="form-group">
+        <input type="text" name="sub_category" placeholder="Application Fees" />
+      </div>
+    </div>
+      </fieldset>
+
+      <!-- Section 4: JV Agreement -->
+      <fieldset id="section4">
+        <legend>Joint Venture Agreement</legend>
+        <div class="form-row">
+          <div class="form-group">
+        <label>Upload Signed JV Agreement</label>
+        <input type="file" name="jv_agreement" accept=".pdf,.doc,.docx" required />
+</div>
+<div class="form-group">
+        <label>Declaration Statement</label>
+         <input type="text" name="declaration"  placeholder="" required>
+</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+         
+        <input type="text" name="signatory_lead" placeholder="Authorized Signatory (Lead Partner)"required />
+</div>
+<div class="form-group">
+         
+        <input type="text" name="signatory_other" placeholder="Authorized Signatory (Other Partner)"required />
+</div>
+<div class="form-group">
+         
+        <input type="text" name="witness_name" placeholder="Witness Name"required />
+      </div>
+    </div>
+      </fieldset>
+
+      <!-- Section 6: Scrutiny Checklist -->
+      <fieldset id="section6">
+        <legend>Scrutiny Checklist</legend>
+        <div class="form-row">
+<div class="form-group">
+        <label>Upload NCC Certificates</label>
+        <input type="file" name="certificates" multiple accept=".pdf,.jpg,.png" required />
+</div><div class="form-group">
+        <label>Upload Financial Statements</label>
+        <input type="file" name="financials" multiple accept=".pdf,.xls,.xlsx" required />
+         </div>
+       </div>
+
+      </fieldset>
+
+      <!-- Section 7: Payment -->
+      <fieldset id="section7">
+        <legend>Payment Information</legend>
+        <div class="form-row">
+<div class="form-group">
+        <label>Upload Proof of Payment</label>
+        <input type="file" name="payment_proof" accept=".pdf,.jpg,.png" required />
+</div><div class="form-group">
+        <label>Bank Used</label>
+        <select name="bank_used" required>
+          <option value="">-- Select Bank --</option>
+          <option value="Barclays">Barclays Bank Zambia</option>
+          <option value="Atlas Mara">Atlas Mara Zambia</option>
+          <option value="FNB">First National Bank</option>
+        </select>
+      </div>
+    </div>
+      </fieldset>
+
+      <button type="submit">Submit Registration</button>
+    </form>
+  </div>
+  <div id="successPopup" class="popup" style="display:none;">
+  <center><div class="popup-content">
+    <h2>✅ Submission Successful!</h2>
+    <p>Your Joint Venture form application has been submitted.</p>
+    <button onclick="showServices()">View Tax Returns Online Services</button></center>
+  </div>
+</div>
+<div id="servicesPopup" class="popup" style="display:none;">
+  <div class="popup-content scrollable-modal">
+    <h2 class="modal-title">Tax Returns Online Services</h2>
+    <div class="form-card-grid">
+      <!-- Each card links to taxman.co.zm -->
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-file-alt"></i>
+        <h3>Incomplete Records</h3>
+        <p>We help reconstruct missing financial data to ensure accurate reporting and compliance.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-exchange-alt"></i>
+        <h3>Debtors &amp; Creditors</h3>
+        <p>Track who owes you and who you owe with clear reconciliation tools and reports.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-book"></i>
+        <h3>Cash Book &amp; Ledger</h3>
+        <p>Maintain organized records of all transactions for full financial visibility.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-users"></i>
+        <h3>Payroll Management</h3>
+        <p>Automate payroll, NAPSA, and PAYE calculations with secure employee data handling.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fab fa-sass"></i>
+        <h3>SAGE Setup</h3>
+        <p>Get professional configuration and onboarding for your SAGE accounting system.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-building"></i>
+        <h3>ZRA Agency</h3>
+        <p>We act as your ZRA liaison, simplifying tax registration, filing, and Smart Invoice setup.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-receipt"></i>
+        <h3>Smart Invoicing</h3>
+        <p>Generate ZRA-compliant invoices with automated tax calculations and digital tracking.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-seedling"></i>
+        <h3>Agro &amp; SME Systems</h3>
+        <p>Custom tools for agriculture and small businesses to manage operations and growth.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-hard-hat"></i>
+        <h3>National Council Of Construction</h3>
+        <p>Support for registration, compliance, and digital systems tailored to construction firms.</p>
+      </a>
+
+      <a href="https://tax-centre.com" target="_blank" class="form-card">
+        <i class="fas fa-network-wired"></i>
+        <h3>Web, System Dev &amp; ERPs</h3>
+        <p>Build custom websites, business systems, and ERP platforms to streamline your workflow.</p>
+      </a>
+    </div>
+    <button onclick="window.location.href='NCC.html'" class="close-btn">Close</button>
+  </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("jvForm");
+  const progressBar = document.getElementById("progressBar");
+  const sections = document.querySelectorAll("fieldset");
+  const stepLabels = document.querySelectorAll(".step-label");
+
+  // Safety check
+  if (!form ||!progressBar || sections.length === 0 || stepLabels.length === 0) return;
+
+  // Progress bar logic
+  form.addEventListener("input", () => {
+    const inputs = form.querySelectorAll("input, select, textarea");
+    const filled = Array.from(inputs).filter(input => {
+      if (input.type === "checkbox" || input.type === "radio") {
+        return input.checked;
+}
+      return input.value.trim()!== "";
+}).length;
+
+    const total = inputs.length;
+    const progress = Math.round((filled / total) * 100);
+    progressBar.style.width = `${progress}%`;
+});
+
+  // Step indicator logic
+  window.addEventListener("scroll", () => {
+    let currentIndex = 0;
+    sections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= 150 && rect.bottom>= 150) {
+        currentIndex = index;
+}
+});
+    stepLabels.forEach((label, index) => {
+      label.classList.toggle("active", index === currentIndex);
+});
+});
+
+  // Signature pad logic
+  const signaturePads = {
+    Lead: {
+      canvas: document.getElementById("signaturePadLead"),
+      dataInput: document.getElementById("signatureDataLead"),
+      ctx: null,
+      drawing: false
+},
+    Partner: {
+      canvas: document.getElementById("signaturePadPartner"),
+      dataInput: document.getElementById("signatureDataPartner"),
+      ctx: null,
+      drawing: false
+}
+};
+
+  Object.values(signaturePads).forEach(pad => {
+    if (!pad.canvas ||!pad.dataInput) return;
+    pad.ctx = pad.canvas.getContext("2d");
+
+    pad.canvas.addEventListener("mousedown", () => pad.drawing = true);
+    pad.canvas.addEventListener("mouseup", () => pad.drawing = false);
+    pad.canvas.addEventListener("mouseout", () => pad.drawing = false);
+    pad.canvas.addEventListener("mousemove", e => {
+      if (!pad.drawing) return;
+      const rect = pad.canvas.getBoundingClientRect();
+      pad.ctx.lineWidth = 2;
+      pad.ctx.lineCap = "round";
+      pad.ctx.strokeStyle = "#000";
+      pad.ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      pad.ctx.stroke();
+      pad.ctx.beginPath();
+      pad.ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+});
+});
+
+  window.clearSignature = function (who) {
+    const pad = signaturePads[who];
+    if (pad && pad.ctx) {
+      pad.ctx.clearRect(0, 0, pad.canvas.width, pad.canvas.height);
+      pad.dataInput.value = "";
+}
+};
+
+  // Form submission
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // Save signature data
+    Object.values(signaturePads).forEach(pad => {
+      if (pad.canvas && pad.dataInput) {
+        pad.dataInput.value = pad.canvas.toDataURL();
+}
+});
+
+
+    // Clear signature canvases
+    Object.values(signaturePads).forEach(pad => {
+      if (pad.ctx) pad.ctx.clearRect(0, 0, pad.canvas.width, pad.canvas.height);
+});
+
+    window.scrollTo({ top: 0, behavior: "smooth"});
+});
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form'); // Make sure this matches your actual form
+  const successPopup = document.getElementById('successPopup');
+  const servicesPopup = document.getElementById('servicesPopup');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // ✅ Prevent page reload
+    successPopup.style.display = 'block'; // ✅ Show success popup
+});
+
+  window.showServices = function() {
+    successPopup.style.display = 'none';
+    servicesPopup.style.display = 'block';
+};
+});
+</script>
+</body>
+<html>

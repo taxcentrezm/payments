@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NCC Zambia – Renewal Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="logo.css"/>
+  <style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(to right, #f0f0f5, #e6e6ec);
+  margin: 0;
+  padding: 2rem;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 2rem;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button {
+  background-color: #007aff;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+}
+
+canvas {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: crosshair;
+  margin-bottom: 0.5rem;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="logo-row">
+      <img src="ncc.png" alt="NCC Logo" />
+      <img src="tros1.png" alt="TaxMan Zambia Logo" />
+    </div>
+   <center><h1> REGISTRATION OF CONTRACTORS - 2025 </h1></center>
+    <h2>Grade 6 Additional Category Registration – 2025</h2>
+	<center><p style="font-size:10px"><i>[In terms of the National Council for Construction Act No.
+	10 of 2020 of the Laws of Zambia]</i></P></center>
+</br></br></center>
+
+  <form id="grade6Form">
+    <!-- Instructions -->
+    <fieldset>
+      <legend>Instructions to Applicants</legend>
+      <p>This form is for Grade 6 contractors applying for additional categories. Ensure your NCC certificate is valid for the current year. Fees must be paid directly to NCC bank accounts listed below.</p>
+    </fieldset>
+
+    <!-- Company Name -->
+    <fieldset>
+      <legend>Company Information</legend>
+      <label>Company Name</label>
+      <input type="text" name="company_name" required />
+    </fieldset>
+
+    <!-- Categories -->
+    <fieldset>
+      <legend>Categories of Construction Activities</legend>
+      <label>Select Categories (You may choose multiple)</label>
+      <select name="categories" multiple required>
+        <option value="B">General Building and Housing</option>
+        <option value="C">General Civil Engineering Works</option>
+        <option value="R">General Roads and Earthworks</option>
+        <option value="E">Electrical and Telecommunications</option>
+        <option value="ME">Mechanical Engineering Works</option>
+        <option value="M-B">Mining - Building and Housing</option>
+        <option value="M-C">Mining - Civil Engineering</option>
+        <option value="M-R">Mining - Roads and Earthworks</option>
+        <option value="M-E">Mining - Electrical</option>
+        <option value="M-ME">Mining - Mechanical</option>
+        <option value="M-M">Mining - Quarrying</option>
+      </select>
+
+      <label>Number of Categories Selected</label>
+      <input type="number" name="category_count" id="categoryCount" readonly />
+
+      <label>Express Registration?</label>
+      <select name="express" id="express">
+        <option value="No">No</option>
+        <option value="Yes">Yes</option>
+      </select>
+
+      <label>Total Fee</label>
+      <input type="number" name="total_fee" id="totalFee" readonly />
+    </fieldset>
+
+    <!-- Declaration -->
+    <fieldset>
+      <legend>Declaration</legend>
+      <label>Declaration Statement</label>
+      <textarea name="declaration" required></textarea>
+
+      <label>Shareholder or Power of Attorney Name</label>
+      <input type="text" name="declarer_name" required />
+
+      <label>Witness Name</label>
+      <input type="text" name="witness_name" required />
+
+      <label>Signature</label>
+
+<canvas id="signaturePad" width="300" height="100"></canvas>
+      <button type="button" onclick="clearSignature()">Clear Signature</button>
+      <input type="hidden" name="signatureData" id="signatureData" />
+    </fieldset>
+
+    <!-- Scrutiny Checklist -->
+    <fieldset>
+      <legend>Scrutiny Checklist</legend>
+      <div id="checklistContainer">
+        <!-- Checklist items will be injected here -->
+      </div>
+    </fieldset>
+
+    <!-- Payment -->
+    <fieldset>
+      <legend>Payment Information</legend>
+      <label>Upload Proof of Payment</label>
+      <input type="file" name="payment_proof" accept=".pdf,.jpg,.png" required />
+
+      <label>Select Bank Used</label>
+      <select name="bank" required>
+        <option value="">-- Select Bank --</option>
+        <option value="ABSA">ABSA Bank Zambia PLC</option>
+        <option value="Access">Access Bank Zambia</option>
+        <option value="FNB">First National Bank</option>
+        <option value="ZANACO">ZANACO</option>
+        <option value="ZICB">Zambia Industrial Commercial Bank</option>
+      </select>
+    </fieldset>
+
+    <button type="submit">Submit Application</button>
+  </form>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("grade6Form");
+  const categorySelect = form.querySelector("select[name='categories']");
+  const categoryCountInput = document.getElementById("categoryCount");
+  const totalFeeInput = document.getElementById("totalFee");
+  const expressSelect = document.getElementById("express");
+  const checklistContainer = document.getElementById("checklistContainer");
+
+  // Fee logic
+  function updateFee() {
+    const selected = Array.from(categorySelect.selectedOptions);
+    const count = selected.length;
+    const express = expressSelect.value === "Yes";
+    const feePerCategory = express? 1500: 750;
+    categoryCountInput.value = count;
+    totalFeeInput.value = count * feePerCategory;
+}
+
+  categorySelect.addEventListener("change", updateFee);
+  expressSelect.addEventListener("change", updateFee);
+
+  // Signature pad
+  const canvas = document.getElementById("signaturePad");
+  const ctx = canvas.getContext("2d");
+  let drawing = false;
+
+  canvas.addEventListener("mousedown", () => drawing = true);
+  canvas.addEventListener("mouseup", () => drawing = false);
+  canvas.addEventListener("mouseout", () => drawing = false);
+  canvas.addEventListener("mousemove", e => {
+    if (!drawing) return;
+    const rect = canvas.getBoundingClientRect();
+    ctx.lineWidth = 2;
+    ctx.lineCap = "round";
+    ctx.strokeStyle = "#000";
+    ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+});
+
+  window.clearSignature = function () {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    document.getElementById("signatureData").value = "";
+};
+
+  // Checklist items
+  const checklistItems = [
+    "Original Proof of Payment",
+    "Signed Declaration Page",
+    "Power of Attorney (if applicable)"
+  ];
+
+  checklistContainer.innerHTML = checklistItems.map(item => `
+    <label><input type="checkbox" required /> ${item}</label>
+  `).join("");
+
+  // Form submission
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    document.getElementById("signatureData").value = canvas.toDataURL();
+    alert("✅ Additional Category Application Submitted Successfully!");
+    form.reset();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    categoryCountInput.value = "";
+    totalFeeInput.value = "";
+});
+});
+</script>
+</body>
+</html>
