@@ -1314,10 +1314,9 @@ footer {
   downloadBtn.style.zIndex = "999";
 
   downloadBtn.onclick = () => certificateWindow.print();
-  certificateWindow.document.body.appendChild(downloadBtn);
+  certificateWindow.document.body.appendChild(downloadBtn)};
 
-  // Optional: auto-print after QR is rendered
-  // certificateWindow.print();
+
 };
 }
 </script>
@@ -1552,4 +1551,5 @@ function collectReferences() {
 </script>
 </body>
 </html>
+
 
