@@ -6,29 +6,37 @@ const db = createClient({
 });
 
 export default async function handler(req, res) {
+  // Always set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
+  // Handle preflight
   if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { contractorId } = req.query;
-
-  if (!contractorId) {
-    return res.status(400).json({ error: 'Missing contractorId' });
+  // Validate method
+  if (req.method !== 'GET') {
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
+    const { contractorId } = req.query;
+
+    if (!contractorId) {
+      return res.status(400).json({ error: 'Missing contractorId' });
+    }
+
     const result = await db.execute({
       sql: `SELECT COUNT(*) AS count FROM invoices WHERE contractor_id = ? AND status != 'paid'`,
       args: [contractorId]
     });
 
-    const hasOutstandingBalance = result.rows[0].count > 0;
+    const hasOutstandingBalance = result.rows[0]?.count > 0;
     res.status(200).json({ hasOutstandingBalance });
   } catch (err) {
     console.error("Balance check error:", err.message);
+    // Ensure CORS headers are still present on error
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.status(500).json({ error: "Failed to check balance", details: err.message });
   }
 }
