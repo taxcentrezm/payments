@@ -1063,23 +1063,22 @@ return `${kwacha} Kwacha and ${ngwee}`;
   const contractorName = document.querySelector('input[name="company_name"]').value;
   const contractor_category = document.querySelector('.contractor_category').value;
   const year = new Date().getFullYear();
-const registrationNumber = `NCC/${year}/${Math.floor(1000 + Math.random() * 9000)}`;
+  const registrationNumber = `NCC/${year}/${Math.floor(1000 + Math.random() * 9000)}`;
   let category = "";
 
   gradeRows.forEach((row) => {
     const companyType = row.querySelector('.companyType').value;
     const feeGrade = row.querySelector('.feeGrade').value;
-    const contractor_category = row.querySelector('.contractor_category').value;
-    if (companyType && feeGrade && contractor_category) {
-      category += `${companyType} - ${feeGrade} - ${contractor_category}, `;
-}
-});
+    const rowCategory = row.querySelector('.contractor_category').value;
+    if (companyType && feeGrade && rowCategory) {
+      category += `${companyType} - ${feeGrade} - ${rowCategory}, `;
+    }
+  });
 
   category = category.trim().replace(/,$/, "");
   const expiryDate = new Date(year + 1, 11, 31).toLocaleDateString();
 
-  const certificateHTML = `
-<html>
+  const certificateHTML = `<!DOCTYPE html><html>
   <head>
     <title>Certificate</title>
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"><\/script>
@@ -1273,22 +1272,33 @@ footer {
 </html>
 `;
 
-const certificateWindow = window.open("", "_blank");
-certificateWindow.document.write(certificateHTML);
-certificateWindow.document.close();
+  // Open window
+  const certificateWindow = window.open("", "_blank");
 
-certificateWindow.onload = () => {
-  // ✅ Wait until the window is fully loaded
+  if (!certificateWindow) {
+    alert("Popup blocked. Please allow popups to view your certificate.");
+    return;
+  }
 
-  // Generate QR code
-  new certificateWindow.QRCode(
-    certificateWindow.document.getElementById("qrcode"),
-    {
-      text: registrationNumber,
-      width: 100,
-      height: 100
+  // Write certificate content
+  certificateWindow.document.write(certificateHTML);
+  certificateWindow.document.close();
+
+  // Wait for window to load before injecting QR code
+  certificateWindow.onload = () => {
+    const qrTarget = certificateWindow.document.getElementById("qrcode");
+    if (qrTarget && certificateWindow.QRCode) {
+      new certificateWindow.QRCode(qrTarget, {
+        text: registrationNumber,
+        width: 100,
+        height: 100
+      });
+    } else {
+      console.warn("QR code target or library not available.");
+    }
+  };
 }
-);
+
 
   // Create and append download button
   const downloadBtn = certificateWindow.document.createElement('button');
@@ -1542,3 +1552,4 @@ function collectReferences() {
 </script>
 </body>
 </html>
+
