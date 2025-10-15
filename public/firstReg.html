@@ -1284,8 +1284,7 @@ footer {
   certificateWindow.document.write(certificateHTML);
   certificateWindow.document.close();
 
-  // Wait for window to load before injecting QR code
-  certificateWindow.onload = () => {
+ certificateWindow.onload = () => {
     const qrTarget = certificateWindow.document.getElementById("qrcode");
     if (qrTarget && certificateWindow.QRCode) {
       new certificateWindow.QRCode(qrTarget, {
@@ -1296,28 +1295,23 @@ footer {
     } else {
       console.warn("QR code target or library not available.");
     }
+
+    // ✅ Create and append download button AFTER QR code is injected
+    const downloadBtn = certificateWindow.document.createElement('button');
+    downloadBtn.textContent = "Download PDF";
+    downloadBtn.style.position = "fixed";
+    downloadBtn.style.top = "20px";
+    downloadBtn.style.right = "20px";
+    downloadBtn.style.padding = "10px 20px";
+    downloadBtn.style.backgroundColor = "#007b7f";
+    downloadBtn.style.color = "#fff";
+    downloadBtn.style.border = "none";
+    downloadBtn.style.cursor = "pointer";
+    downloadBtn.style.zIndex = "999";
+
+    downloadBtn.onclick = () => certificateWindow.print();
+    certificateWindow.document.body.appendChild(downloadBtn);
   };
-}
-
-
-  // Create and append download button
-  const downloadBtn = certificateWindow.document.createElement('button');
-  downloadBtn.textContent = "Download PDF";
-  downloadBtn.style.position = "fixed";
-  downloadBtn.style.top = "20px";
-  downloadBtn.style.right = "20px";
-  downloadBtn.style.padding = "10px 20px";
-  downloadBtn.style.backgroundColor = "#007b7f";
-  downloadBtn.style.color = "#fff";
-  downloadBtn.style.border = "none";
-  downloadBtn.style.cursor = "pointer";
-  downloadBtn.style.zIndex = "999";
-
-  downloadBtn.onclick = () => certificateWindow.print();
-  certificateWindow.document.body.appendChild(downloadBtn)};
-
-
-};
 }
 </script>
 
@@ -1551,5 +1545,6 @@ function collectReferences() {
 </script>
 </body>
 </html>
+
 
 
