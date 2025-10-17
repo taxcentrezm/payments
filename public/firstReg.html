@@ -1,1550 +1,416 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang=en>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NCC Zambia – First Registration</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: linear-gradient(to right, #f0f0f5, #e6e6ec);
-  margin: 0;
-  padding: 2rem;
-  color: #333;
-}
-
-.container {
-  max-width: 900px;
-  margin: auto;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-}
-
-.logo-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-.logo-row img {
-  max-width: 150px;
-  height: auto;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-fieldset {
-  border: none;
-  margin-bottom: 2rem;
-}
-
-legend {
-  font-weight: bold;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-input, select, textarea {
-  width: 100%;
-  padding: 0.6rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-}
-
-textarea {
-  resize: vertical;
-  min-height: 80px;
-}
-
-input[type="tel"],
-input[type="email"],
-input[type="number"],
-input[type="text"] {
-  max-width: 100%;
-}
-
-button {
-  background-color: #d71921;
-  color: white;
-  padding: 0.8rem 1.2rem;
-  border: none;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  margin-top: 0.5rem;
-}
-
-button:hover {
-  background-color: #a71319;
-}
-
-.progress-container {
-  background-color: #e0e0e0;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 1rem;
-  height: 10px;
-}
-
-.progress-bar {
-  height: 10px;
-  background-color: #d71921;
-  width: 0%;
-  transition: width 0.3s ease;
-}
-
-.step-indicator {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-  flex-wrap: wrap;
-}
-
-.step-label {
-  flex: 1;
-  text-align: center;
-  padding: 0.5rem;
-  border-bottom: 3px solid #ccc;
-  color: #8f1016;
-}
-
-.step-label i {
-  margin-right: 6px;
-}
-
-.step-label.active {
-  border-bottom: 3px solid #d71921;
-  color: #5f0b0e;
-  font-weight: bold;
-}
-
-canvas {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  cursor: crosshair;
-  margin-bottom: 0.5rem;
-}
-
-.certificate-container {
-  width: 800px;
-  margin: 40px auto;
-  padding: 60px;
-  background: linear-gradient(135deg, #f9f9f9, #ffffff);
-  border: 8px solid #1e3a8a;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  position: relative;
-  font-family: 'Segoe UI', sans-serif;
-  overflow: hidden;
-}
-
-/* Geometric background pattern */
-.certificate-container::before {
-  content: "";
-  position: absolute;
-  top: -50px;
-  left: -50px;
-  width: 200px;
-  height: 200px;
-  background: rgba(30, 58, 138, 0.1);
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-  z-index: 0;
-}
-
-.certificate-container::after {
-  content: "";
-  position: absolute;
-  bottom: -50px;
-  right: -50px;
-  width: 200px;
-  height: 200px;
-  background: rgba(30, 58, 138, 0.1);
-  clip-path: polygon(100% 100%, 0 100%, 100% 0);
-  z-index: 0;
-}
-
-.certificate-header {
-  text-align: center;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 1;
-}
-
-.certificate-header h1 {
-  font-size: 32px;
-  color: #1e3a8a;
-  margin-bottom: 10px;
-}
-
-.certificate-content {
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.certificate-content h2 {
-  font-size: 28px;
-  margin: 10px 0;
-  color: #333;
-}
-
-.certificate-content p {
-  font-size: 16px;
-  margin: 20px auto;
-  max-width: 600px;
-  color: #555;
-}
-
-/* Ribbon badge */
-.ribbon {
-  position: absolute;
-  top: 120px;
-  right: 40px;
-  background: #1e3a8a;
-  color: #fff;
-  padding: 10px 20px;
-  font-weight: bold;
-  border-radius: 50px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  z-index: 2;
-}
-
-/* Footer */
-.certificate-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-  font-size: 16px;
-  color: #333;
-  position: relative;
-  z-index: 1;
-}
-
-.signature {
-  border-top: 1px solid #333;
-  width: 200px;
-  text-align: center;
-  margin-top: 10px;
-}
-
-@media print {
-  body {
-    margin: 0;
-    padding: 0;
-    background: none;
-}
-.certificate-container {
-    box-shadow: none;
-    border: none;
-}
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.5);
-}
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  box-shadow: 0 0 10px #333;
-}
-.close {
-  float: right;
-  font-size: 24px;
-  cursor: pointer;
-}
-input, button {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 8px;
-}
-
-#proceedToZynlePay {
-  display: block; /* or inline-block */
-  visibility: visible;
-  opacity: 1;
-}
-
-#loadingSpinner {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  color: white;
-  font-family: sans-serif;
-}
-
-.spinner {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #007b7f;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 20px;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg);}
-  100% { transform: rotate(360deg);}
-}
-
-</style>
+<meta charset=UTF-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>NCC Zambia – First Registration</title>
+<link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css>
+<link rel=stylesheet href=styles.css>
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:linear-gradient(to right,#f0f0f5,#e6e6ec);margin:0;padding:2rem;color:#333}.container{max-width:900px;margin:auto;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,.1);padding:2rem}.logo-row{display:flex;justify-content:center;align-items:center;gap:2rem;margin-bottom:1.5rem}.logo-row img{max-width:150px;height:auto}h2{text-align:center;margin-bottom:1rem}fieldset{border:none;margin-bottom:2rem}legend{font-weight:700;margin-bottom:1rem;font-size:1.2rem}label{display:block;margin-bottom:.5rem;font-weight:500}input,select,textarea{width:100%;padding:.6rem;border-radius:8px;border:1px solid #ccc;margin-bottom:1rem;font-size:1rem}textarea{resize:vertical;min-height:80px}input[type=email],input[type=number],input[type=tel],input[type=text]{max-width:100%}button{background-color:#d71921;color:#fff;padding:.8rem 1.2rem;border:none;border-radius:10px;font-size:1rem;cursor:pointer;transition:background .3s ease;margin-top:.5rem}button:hover{background-color:#a71319}.progress-container{background-color:#e0e0e0;border-radius:10px;overflow:hidden;margin-bottom:1rem;height:10px}.progress-bar{height:10px;background-color:#d71921;width:0%;transition:width .3s ease}.step-indicator{display:flex;justify-content:space-between;margin-bottom:1rem;font-size:.9rem;flex-wrap:wrap}.step-label{flex:1;text-align:center;padding:.5rem;border-bottom:3px solid #ccc;color:#8f1016}.step-label i{margin-right:6px}.step-label.active{border-bottom:3px solid #d71921;color:#5f0b0e;font-weight:700}canvas{background-color:#fff;border:1px solid #ccc;border-radius:8px;cursor:crosshair;margin-bottom:.5rem}.certificate-container{width:800px;margin:40px auto;padding:60px;background:linear-gradient(135deg,#f9f9f9,#fff);border:8px solid #1e3a8a;border-radius:12px;box-shadow:0 0 20px rgba(0,0,0,.15);position:relative;font-family:'Segoe UI',sans-serif;overflow:hidden}.certificate-container::before{content:"";position:absolute;top:-50px;left:-50px;width:200px;height:200px;background:rgba(30,58,138,.1);clip-path:polygon(0 0,100% 0,0 100%);z-index:0}.certificate-container::after{content:"";position:absolute;bottom:-50px;right:-50px;width:200px;height:200px;background:rgba(30,58,138,.1);clip-path:polygon(100% 100%,0 100%,100% 0);z-index:0}.certificate-header{text-align:center;margin-bottom:30px;position:relative;z-index:1}.certificate-header h1{font-size:32px;color:#1e3a8a;margin-bottom:10px}.certificate-content{text-align:center;position:relative;z-index:1}.certificate-content h2{font-size:28px;margin:10px 0;color:#333}.certificate-content p{font-size:16px;margin:20px auto;max-width:600px;color:#555}.ribbon{position:absolute;top:120px;right:40px;background:#1e3a8a;color:#fff;padding:10px 20px;font-weight:700;border-radius:50px;box-shadow:0 4px 6px rgba(0,0,0,.2);z-index:2}.certificate-footer{display:flex;justify-content:space-between;margin-top:40px;font-size:16px;color:#333;position:relative;z-index:1}.signature{border-top:1px solid #333;width:200px;text-align:center;margin-top:10px}@media print{body{margin:0;padding:0;background:0 0}.certificate-container{box-shadow:none;border:none}}.modal{display:none;position:fixed;z-index:999;left:0;top:0;width:100%;height:100%;background-color:rgba(0,0,0,.5)}.modal-content{background-color:#fff;margin:10% auto;padding:20px;border-radius:8px;width:300px;box-shadow:0 0 10px #333}.close{float:right;font-size:24px;cursor:pointer}button,input{width:100%;margin-bottom:10px;padding:8px}#proceedToZynlePay{display:block;visibility:visible;opacity:1}#loadingSpinner{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;color:#fff;font-family:sans-serif}.spinner{border:8px solid #f3f3f3;border-top:8px solid #007b7f;border-radius:50%;width:60px;height:60px;animation:spin 1s linear infinite;margin-bottom:20px}@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}</style>
 </head>
 <body>
-    <div class="container">
-    <div class="watermark-container"> <div class="logo-row">
-      <img src="ncc.png" alt="NCC Logo" />
-      <img src="tros1.png" alt="TaxMan Zambia Logo" />
-    </div>
-   <center><h1> REGISTRATION OF CONTRACTORS - 2026 </h1></center>
-    <h2>First Registration of Contractors</h2>
-  <center><p style="font-size:10px"><i>[In terms of the National Council for Construction Act No.
-  10 of 2020 of the Laws of Zambia]</i></P></center>
-</br></br></center>
-    <div class="step-indicator">
-      <div class="step-label active"><i class="fas fa-building"></i> Company Info</div>
-      <div class="step-label"><i class="fas fa-users"></i> Shareholders</div>
-      <div class="step-label"><i class="fas fa-tools"></i> Technical</div>
-      <div class="step-label"><i class="fas fa-truck"></i> Equipment</div>
-      <div class="step-label"><i class="fas fa-clipboard-list"></i> Contracts</div>
-      <div class="step-label"><i class="fas fa-user-check"></i> References</div>
-      <div class="step-label"><i class="fas fa-layer-group"></i> Categories</div>
-      <div class="step-label"><i class="fas fa-signature"></i> Declaration</div>
-      <div class="step-label"><i class="fas fa-clipboard-check"></i> Checklist</div>
-      <div class="step-label"><i class="fas fa-money-check-alt"></i> Payment</div>
-    </div>
-
-    <div class="progress-container">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
-
-
- 
-  <img src="ncc.png" alt="NCC Logo" class="watermark" />
-    <form id="firstRegForm">
-  <!-- Section 1: Company Details -->
-   <fieldset id="section1">
-    <legend>Company Details</legend>
-    <div class="form-row">
-      <div class="form-group">
-    <input type="text" name="company_name" placeholder="Tax Online Solutions" required />
+<div class=container>
+<div class=watermark-container> <div class=logo-row>
+<img src=ncc.png alt="NCC Logo">
+<img src=tros1.png alt="TaxMan Zambia Logo">
 </div>
-<div class="form-group">
-    <input type="text" name="physical_address" placeholder="Registered Physical Office Address" required></textarea>
+<center><h1> REGISTRATION OF CONTRACTORS - 2026 </h1></center>
+<h2>First Registration of Contractors</h2>
+<center><p style=font-size:10px><i>[In terms of the National Council for Construction Act No. 10 of 2020 of the Laws of Zambia]</i></p></center>
+<br><br>
+<div class=step-indicator>
+<div class="step-label active"><i class="fas fa-building"></i> Company Info</div>
+<div class=step-label><i class="fas fa-users"></i> Shareholders</div>
+<div class=step-label><i class="fas fa-tools"></i> Technical</div>
+<div class=step-label><i class="fas fa-truck"></i> Equipment</div>
+<div class=step-label><i class="fas fa-clipboard-list"></i> Contracts</div>
+<div class=step-label><i class="fas fa-user-check"></i> References</div>
+<div class=step-label><i class="fas fa-layer-group"></i> Categories</div>
+<div class=step-label><i class="fas fa-signature"></i> Declaration</div>
+<div class=step-label><i class="fas fa-clipboard-check"></i> Checklist</div>
+<div class=step-label><i class="fas fa-money-check-alt"></i> Payment</div>
 </div>
-<div class="form-group">
-    <input type="text" name="town" placeholder="town" required />
+<div class=progress-container>
+<div class=progress-bar id=progressBar></div>
+</div>
+<img src=ncc.png alt="NCC Logo" class=watermark>
+<form id=firstRegForm>
+<fieldset id=section1>
+<legend>Company Details</legend>
+<div class=form-row>
+<div class=form-group>
+<input name=company_name placeholder="Tax Online Solutions" required>
+</div>
+<div class=form-group>
+<input name=physical_address placeholder="Registered Physical Office Address" required>
+</div>
+<div class=form-group>
+<input name=town placeholder=town required>
 </div>
 </div>
- <div class="form-row">
-<div class="form-group">
-    <input type="tel" name="phone" placeholder="+260-273-278-834" required />
+<div class=form-row>
+<div class=form-group>
+<input type=tel name=phone placeholder=+260-273-278-834 required>
 </div>
-<div class="form-group">
-    <input type="tel" name="mobile" placeholder="+260-876-978-454" required />
+<div class=form-group>
+<input type=tel name=mobile placeholder=+260-876-978-454 required>
 </div>
-<div class="form-group">
-    <input type="email" name="email" placeholder="example@tax-centre.com" required />
-  </div>
-</div>
-  </fieldset>
-
-  <!-- Section 2: Branch Offices -->
-  <fieldset id="section2">
-    <legend>Branch Offices</legend>
-    <div class="form-row">
-<div class="form-group">
-    <input type="text" name="branch_physical" placeholder="branch physical address" required>
-    </div>
-    <div class="form-group">
-    <input type="text" name="branch_postal" placeholder="Branch Postal Address" required>
-</div>
-</div>
-   <div class="form-row">
-<div class="form-group">
-    <input type="tel" name="branch_phone" placeholder="Tel Number" required />
-</div>
-<div class="form-group">
-    <input type="tel" name="branch_mobile" placeholder="+260-876-978-454" required />
-</div>
-<div class="form-group">
-    <input type="email" name="branch_email" placeholder="example@tax-centre.com" required />
-  </div>
-</div>
-  </fieldset>
-
-  <!-- Section 3: Ownership & Shareholders -->
-  <fieldset id="section3">
-    <legend>Ownership & Shareholders</legend>
-        <div class="form-row">
-<div class="form-group">
-    <select name="company_type" required>
-      <option value="">-- Select --</option>
-      <option value="Listed">Listed Company</option>
-      <option value="Limited">Limited Company</option>
-      <option value="Partnership">Partnership</option>
-      <option value="Sole">Sole Proprietor</option>
-    </select>
-  </div>
-
-    <div class="form-group">
-    <input type="text" name="business_description" placeholder="Business Description" required>
-</div>
-<div class="form-group">
-    <input type="text" name="shareholder_name" placeholder="Shareholder Name" Namerequired />
-</div>
-<div class="form-group">
-    <input type="text" name="shareholder_nrc" placeholder="Shareholder NRC"required />
-</div></div>
-<div class="form-row">
-<div class="form-group">
-    <select name="shareholder_status" required>
-      <option value="">-- Select Status --</option>
-      <option value="Citizen">Citizen</option>
-      <option value="Non-Citizen">Non-Citizen</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <select name="ownership_type" required>
-      <option value="">-- Select Ownership Type --</option>
-      <option value="Male Owned">Male Owned</option>
-      <option value="Male Dominated">Male Dominated</option>
-      <option value="Female Owned">Female Owned</option>
-      <option value="Female Dominated">Female Dominated</option>
-      <option value="Equal Shares">Equal Shares</option>
-      <option value="Corporate Shares">Corporate Shares</option>
-    </select>
-  </div>
-<div class="form-group">
-    <input type="number" name="shareholding" min="0" max="100" placeholder="Shareholding (%)"required />
-</div>
-<div class="form-group">
-    <input type="text" name="shareholder_qualification" placeholder="Academic Qualification" required />
-</div>
-
-</div>
-  </fieldset>
-  <!-- Section 4: Bank Info -->
-  <fieldset id="section4">
-    <legend>Bank Information</legend>
-    <p><b>This Section is currently disabled</b></h2>
-    <div class="form-row">
-<div class="form-group">
-    <input type="text" name="bank_name" disabled class="disabled-input" placeholder="Bank name">
-</div>
-<div class="form-group">
-    <input type="text" name="bank_branch" disabled class="disabled-input" placeholder="Bank Branch">
-  </div>
-<div class="form-group">
-    <input type="text" name="bank_account" disabled class="disabled-input" placeholder="Bank Account Number">
-</div>
-<div class="form-group">
-    <input name="bank_address" disabled class="disabled-input" placeholder="Bank Address">
-  </div>
-</div>
-  </fieldset>
-
-  <!-- Section 5: Technical Personnel -->
-  <fieldset id="section5">
-    <legend>Technical Personnel</legend>
-    <div class="form-row">
-<div class="form-group">
-    <input type="text" name="professional_name" placeholder="Professional Staff Name" required />
-  </div>
-<div class="form-group">
-<input type="text" name="professional_qualification" placeholder="Qualification" required />
-</div>
-<div class="form-group">
-    <input type="text" name="professional_nrc" placeholder="NRC/Passport" required />
-</div>
-<div class="form-group">
-    <input type="tel" name="professional_mobile" placeholder="+260-784-874-943" required />
-</div>
-<div class="form-group">
-    <input type="file" name="professional_cv" accept=".pdf,.doc,.docx" required />
-  </div>
-</div>
-  </fieldset>
-
-  <!-- Section 6: Assets & Equipment -->
-  <fieldset id="section6">
-    <legend>Assets & Equipment</legend>
-    <div class="form-row">
-<div class="form-group">
-    <input type="text" name="fixed_assets" placeholder="Fixed Assets Description" required>
-</div>
-<div class="form-group">
-   <input type="text" name="equipment_list" placeholder="Vehicles/Equipment Description" required></div> 
-   </div>    
-   <div class="form-row">       
-<div class="form-group">
-  <label>Asset Proof</label>
-    <input type="file" name="asset_proof" accept=".pdf,.jpg,.png" required />
-</div>
-<div class="form-group"><label>Equipment Proof</label>
-    <input type="file" name="equipment_proof" accept=".pdf,.jpg,.png" required />
-  </div>
-</div>
-  </fieldset>
-
-  <!-- Section 7: Contracts -->
-  <fieldset id="section7">
-    <legend>Completed & Ongoing Contracts</legend>
-      <div class="form-row">
-<div class="form-group">
-
-    <textarea name="completed_projects" placeholder="Completed Projects"required></textarea>
-</div>
-<div class="form-group">
-    <textarea name="ongoing_projects" placeholder="Ongoing Projects"required></textarea>
-  </div>
-</div>
- <div class="form-row">
-<div class="form-group">
-<label>Upload Completion Certificates</label>
-    <input type="file" name="completion_certificates" accept=".pdf,.jpg,.png" required />
-  </div>
-  <div class="form-group">
-    <label>Upload Contract Documents</label>
-    <input type="file" name="contract_docs" accept=".pdf,.jpg,.png" required />
-  </div>
-</div>
-  </fieldset>
-
-  <!-- Section 8: References -->
-  <fieldset id="section8">
-    <legend>Referees & Clients</legend>
-     <div class="form-row">
-<div class="form-group">
-    <input type="text" name="referee_name" placeholder="Technical Referee Name" required />
-</div>
-<div class="form-group">
-    <input type="text" name="referee_firm" placeholder="Name Of Firm" required />
-</div>
-<div class="form-group">
-    <input type="tel" name="referee_phone" placeholder="+260-975-564-467" required />
-</div>
-</div>
-<div class="form-row">
-<div class="form-group">
-    <input type="email" name="referee_email" placeholder="example@tax-centre.com" required />
-</div>
-<div class="form-group">
-    <input type="text" name="client_name" placeholder="Client Reference Name" required />
-</div>
-<div class="form-group">
-    <input type="text" name="client_org" placeholder="Organization" required />
-  </div>
-</div>
-  </fieldset>
-
-  <!-- Section 10: Declaration -->
-  <fieldset id="section10">
-    <legend>Declaration</legend>
-     <div class="form-row">
-  <div class="form-group">
-    <input type="text" name="declaration" placeholder="Declaration Statement" required>
-</div>
- <div class="form-group">
-    <input type="text" name="declarer_name" placeholder="Declarer Name" required />
-</div> <div class="form-group">
-    <input type="text" name="witness_name"  placeholder="Witness Name" required />
-</div>
-</div>
-  </fieldset>
-
-  <!--Section 11: Scrutiny Checklist -->
-<fieldset id="section11">
-    <legend>Scrutiny Checklist</legend>
-     <div class="form-row">
-  <div class="form-group">
-    <div id="checklistContainer">
-      <!-- Checklist items will be injected here based on grade -->
-    </div>
-  </div>
-    <div class="form-group">
-    <label>
-          <input type="checkbox" name="declaration" required />
-          I declare that all information provided is true and complete.
-        </label>
-  </div>
-</div>
-  </fieldset>
-
-<!-- Section 12: Payment Information -->
-<fieldset id="section12">  
-  <legend>Payment Information</legend>
-<!-- Trigger Button -->
-<!--<button id="payWithZynle">Pay with ZynlePay</button>
-
-<div id="paymentModal" class="modal" >
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h3>Complete Your Payment</h3>
-
-    <!-- Grade Rows Container -->
-    <div id="gradeRowsContainer">
-      <!-- Initial Grade Row -->
-      <div class="grade-row">
-        <fieldset>
-          <legend>Grade Details</legend>
-          <div class="form-row">
-            <div class="form-group">
-              <select class="companyType" required>
-                <option value="">Select Type</option>
-                <option value="zambian">Zambian</option>
-                <option value="foreign">Foreign</option>
-                <option value="specialist_local">Local Specialist</option>
-                <option value="specialist_foreign">Foreign Specialist</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <select class="feeGrade" required>
-                <option value="">Select Grade</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <select class="expressOption" required>
-                <option value="">-- Processing Type --</option>
-                <option value="standard">Standard</option>
-                <option value="express">Express</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <select class="contractor_category" required>
-                <option value="">-- Select Category --</option>
-                <option value="Building">Building</option>
-                <option value="Civli">Civil</option>
-                <option value="Roads">Roads</option>
-                <option value="Electrical">Electrical</option>
-                <option value="Mining">Mining</option>
-                <option value="Mechanical">Mechanical</option>
-                <option value="Specialist">Specialist</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <input type="number" class="registrationFee" placeholder="Calculated Registration Fee" readonly />
-              <p class="feeInWords" style="font-style: italic; color: #555;"></p>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-    </div>
-
-    <!-- Controls -->
-    <button id="addGradeRow">Add More Grades</button>
-    <h4>Total Fee: <span id="grandTotal">ZMW 0.00</span></h4>
-    <button id="proceedToZynlePay">Proceed to Payment</button>
-  </div>
-
-<div class="form-row">
-<div class="form-group">
-  <label>Upload Proof of Payment</label>
-  <input type="file" name="payment_proof" accept=".pdf,.jpg,.png" required />
+<div class=form-group>
+<input type=email name=email placeholder=example@tax-centre.com required>
 </div>
 </div>
 </fieldset>
+<fieldset id=section2>
+<legend>Branch Offices</legend>
+<div class=form-row>
+<div class=form-group>
+<input name=branch_physical placeholder="branch physical address" required>
+</div>
+<div class=form-group>
+<input name=branch_postal placeholder="Branch Postal Address" required>
+</div>
+</div>
+<div class=form-row>
+<div class=form-group>
+<input type=tel name=branch_phone placeholder="Tel Number" required>
+</div>
+<div class=form-group>
+<input type=tel name=branch_mobile placeholder=+260-876-978-454 required>
+</div>
+<div class=form-group>
+<input type=email name=branch_email placeholder=example@tax-centre.com required>
+</div>
+</div>
+</fieldset>
+<fieldset id=section3>
+<legend>Ownership & Shareholders</legend>
+<div class=form-row>
+<div class=form-group>
+<select name=company_type required>
+<option value="">-- Select --</option>
+<option value=Listed>Listed Company</option>
+<option value=Limited>Limited Company</option>
+<option value=Partnership>Partnership</option>
+<option value=Sole>Sole Proprietor</option>
+</select>
+</div>
+<div class=form-group>
+<input name=business_description placeholder="Business Description" required>
+</div>
+<div class=form-group>
+<input name=shareholder_name placeholder="Shareholder Name" Namerequired>
+</div>
+<div class=form-group>
+<input name=shareholder_nrc placeholder="Shareholder NRC" required>
+</div></div>
+<div class=form-row>
+<div class=form-group>
+<select name=shareholder_status required>
+<option value="">-- Select Status --</option>
+<option value=Citizen>Citizen</option>
+<option value=Non-Citizen>Non-Citizen</option>
+</select>
+</div>
+<div class=form-group>
+<select name=ownership_type required>
+<option value="">-- Select Ownership Type --</option>
+<option value="Male Owned">Male Owned</option>
+<option value="Male Dominated">Male Dominated</option>
+<option value="Female Owned">Female Owned</option>
+<option value="Female Dominated">Female Dominated</option>
+<option value="Equal Shares">Equal Shares</option>
+<option value="Corporate Shares">Corporate Shares</option>
+</select>
+</div>
+<div class=form-group>
+<input type=number name=shareholding min=0 max=100 placeholder="Shareholding (%)" required>
+</div>
+<div class=form-group>
+<input name=shareholder_qualification placeholder="Academic Qualification" required>
+</div>
+</div>
+</fieldset>
+<fieldset id=section4>
+<legend>Bank Information</legend>
+<p><b>This Section is currently disabled</b>
+</p><div class=form-row>
+<div class=form-group>
+<input name=bank_name disabled class=disabled-input placeholder="Bank name">
+</div>
+<div class=form-group>
+<input name=bank_branch disabled class=disabled-input placeholder="Bank Branch">
+</div>
+<div class=form-group>
+<input name=bank_account disabled class=disabled-input placeholder="Bank Account Number">
+</div>
+<div class=form-group>
+<input name=bank_address disabled class=disabled-input placeholder="Bank Address">
+</div>
+</div>
+</fieldset>
+<fieldset id=section5>
+<legend>Technical Personnel</legend>
+<div class=form-row>
+<div class=form-group>
+<input name=professional_name placeholder="Professional Staff Name" required>
+</div>
+<div class=form-group>
+<input name=professional_qualification placeholder=Qualification required>
+</div>
+<div class=form-group>
+<input name=professional_nrc placeholder=NRC/Passport required>
+</div>
+<div class=form-group>
+<input type=tel name=professional_mobile placeholder=+260-784-874-943 required>
+</div>
+<div class=form-group>
+<input type=file name=professional_cv accept=.pdf,.doc,.docx required>
+</div>
+</div>
+</fieldset>
+<fieldset id=section6>
+<legend>Assets & Equipment</legend>
+<div class=form-row>
+<div class=form-group>
+<input name=fixed_assets placeholder="Fixed Assets Description" required>
+</div>
+<div class=form-group>
+<input name=equipment_list placeholder="Vehicles/Equipment Description" required></div>
+</div>
+<div class=form-row>
+<div class=form-group>
+<label>Asset Proof</label>
+<input type=file name=asset_proof accept=.pdf,.jpg,.png required>
+</div>
+<div class=form-group><label>Equipment Proof</label>
+<input type=file name=equipment_proof accept=.pdf,.jpg,.png required>
+</div>
+</div>
+</fieldset>
+<fieldset id=section7>
+<legend>Completed & Ongoing Contracts</legend>
+<div class=form-row>
+<div class=form-group>
+<textarea name=completed_projects placeholder="Completed Projects" required></textarea>
+</div>
+<div class=form-group>
+<textarea name=ongoing_projects placeholder="Ongoing Projects" required></textarea>
+</div>
+</div>
+<div class=form-row>
+<div class=form-group>
+<label>Upload Completion Certificates</label>
+<input type=file name=completion_certificates accept=.pdf,.jpg,.png required>
+</div>
+<div class=form-group>
+<label>Upload Contract Documents</label>
+<input type=file name=contract_docs accept=.pdf,.jpg,.png required>
+</div>
+</div>
+</fieldset>
+<fieldset id=section8>
+<legend>Referees & Clients</legend>
+<div class=form-row>
+<div class=form-group>
+<input name=referee_name placeholder="Technical Referee Name" required>
+</div>
+<div class=form-group>
+<input name=referee_firm placeholder="Name Of Firm" required>
+</div>
+<div class=form-group>
+<input type=tel name=referee_phone placeholder=+260-975-564-467 required>
+</div>
+</div>
+<div class=form-row>
+<div class=form-group>
+<input type=email name=referee_email placeholder=example@tax-centre.com required>
+</div>
+<div class=form-group>
+<input name=client_name placeholder="Client Reference Name" required>
+</div>
+<div class=form-group>
+<input name=client_org placeholder=Organization required>
+</div>
+</div>
+</fieldset>
+<fieldset id=section10>
+<legend>Declaration</legend>
+<div class=form-row>
+<div class=form-group>
+<input name=declaration placeholder="Declaration Statement" required>
+</div>
+<div class=form-group>
+<input name=declarer_name placeholder="Declarer Name" required>
+</div> <div class=form-group>
+<input name=witness_name placeholder="Witness Name" required>
+</div>
+</div>
+</fieldset>
+<fieldset id=section11>
+<legend>Scrutiny Checklist</legend>
+<div class=form-row>
+<div class=form-group>
+<div id=checklistContainer>
+</div>
+</div>
+<div class=form-group>
+<label>
+<input type=checkbox name=declaration required>
+I declare that all information provided is true and complete.
+</label>
+</div>
+</div>
+</fieldset>
+<fieldset id=section12>
+<legend>Payment Information</legend>
+<div id=gradeRowsContainer>
+<div class=grade-row>
+<fieldset>
+<legend>Grade Details</legend>
+<div class=form-row>
+<div class=form-group>
+<select class=companyType required>
+<option value="">Select Type</option>
+<option value=zambian>Zambian</option>
+<option value=foreign>Foreign</option>
+<option value=specialist_local>Local Specialist</option>
+<option value=specialist_foreign>Foreign Specialist</option>
+</select>
+</div>
+<div class=form-group>
+<select class=feeGrade required>
+<option value="">Select Grade</option>
+</select>
+</div>
+<div class=form-group>
+<select class=expressOption required>
+<option value="">-- Processing Type --</option>
+<option value=standard>Standard</option>
+<option value=express>Express</option>
+</select>
+</div>
+<div class=form-group>
+<select class=contractor_category required>
+<option value="">-- Select Category --</option>
+<option value=Building>Building</option>
+<option value=Civli>Civil</option>
+<option value=Roads>Roads</option>
+<option value=Electrical>Electrical</option>
+<option value=Mining>Mining</option>
+<option value=Mechanical>Mechanical</option>
+<option value=Specialist>Specialist</option>
+</select>
+</div>
+<div class=form-group>
+<input type=number class=registrationFee placeholder="Calculated Registration Fee" readonly>
+<p class=feeInWords style=font-style:italic;color:#555></p>
+</div>
+</div>
+</fieldset>
+</div>
+</div>
+<button id=addGradeRow>Add More Grades</button>
+<h4>Total Fee: <span id=grandTotal>ZMW 0.00</span></h4>
+<button id=proceedToZynlePay>Proceed to Payment</button>
+</fieldset></form></div>
+<div class=form-row>
+<div class=form-group>
+<label>Upload Proof of Payment</label>
+<input type=file name=payment_proof accept=.pdf,.jpg,.png required>
+</div>
+</div>
 
-<!-- Submit Button -->
-<button type="submit">Submit Application</button>
+<button type=submit>Submit Application</button>
 
+</div>
+
+<div id=zynlePayModal class=modal>
+<div class=modal-content>
+<span class=close>&times;</span>
+<h2>Demo Payment Details</h2>
+<form id=zynlePayForm>
+<label>Card Number</label>
+<input value=4111111111111111 readonly>
+<label>CVV</label>
+<input value=971 readonly>
+<label>Expiry Date</label>
+<input value=20/2028 readonly>
+<button type=submit>Confirm and Pay</button>
 </form>
 </div>
 </div>
-<div id="zynlePayModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h2>Demo Payment Details</h2>
-    <form id="zynlePayForm">
-      <label>Card Number</label>
-      <input type="text" value="4111111111111111" readonly>
-
-      <label>CVV</label>
-      <input type="text" value="971" readonly>
-
-      <label>Expiry Date</label>
-      <input type="text" value="20/2028" readonly>
-
-      <button type="submit">Confirm and Pay</button>
-    </form>
-  </div>
+<div id=loadingSpinner style=display:none>
+<div class=spinner></div>
+<p>Waiting for payment confirmation...</p>
 </div>
-<div id="loadingSpinner" style="display: none;">
-  <div class="spinner"></div>
-  <p>Waiting for payment confirmation...</p>
+<div id=successPopup class=popup style=display:none>
+<center><div class=popup-content>
+<h2>✅ Submission Successful!</h2>
+<p>Your First Registration form application has been submitted.</p>
+<button onclick=showServices()>View Tax Returns Online Services</button></div></center>
 </div>
-<div id="successPopup" class="popup" style="display:none;">
-  <center><div class="popup-content">
-    <h2>✅ Submission Successful!</h2>
-    <p>Your First Registration form application has been submitted.</p>
-    <button onclick="showServices()">View Tax Returns Online Services</button></center>
-  </div>
+
+<div id=servicesPopup class=popup style=display:none>
+<div class="popup-content scrollable-modal">
+<h2 class=modal-title>Tax Returns Online Services</h2>
+<div class=form-card-grid>
+<a href=https://tax-centre.com target=_blank class=form-card>
+<i class="fas fa-file-alt"></i>
+<h3>Incomplete Records</h3>
+<p>We help reconstruct missing financial data to ensure accurate reporting and compliance.</p>
+</a>
+<a href=https://tax-centre.com target=_blank class=form-card>
+<i class="fas fa-exchange-alt"></i>
+<h3>Debtors &amp; Creditors</h3>
+<p>Track who owes you and who you owe with clear reconciliation tools and reports.</p>
+</a>
+<a href=https://tax-centre.com target=_blank class=form-card>
+<i class="fas fa-book"></i>
+<h3>Cash Book &amp; Ledger</h3>
+<p>Maintain organized records of all transactions for full financial visibility.</p>
+</a>
+<a href=https://tax-centre.com target=_blank class=form-card>
+<i class="fas fa-users"></i>
+<h3>Payroll Management</h3>
+<p>Automate payroll, NAPSA, and PAYE calculations with secure employee data handling.</p>
+</a>
+<a href=https://tax-centre.com target=_blank class=form-card>
+<i class="fab fa-sass"></i>
+<h3>SAGE Setup</h3>
+<p>Get professional configuration and onboarding for your SAGE accounting system.</p>
+</a>
+<a href=https://tax-centre.com target=_blank class=form-card>
+<i class="fas fa-building"></i>
+<h3>ZRA Agency</h3>
+<p>We act as your ZRA liaison, simplifying tax registration, filing, and Smart Invoice setup.</p>
+</a>
+<a href=https://tax-centre.com target=_blank class=form-card>
+<i class="fas fa-receipt"></i>
+<h3>Smart Invoicing</h3>
+<p>Generate ZRA-compliant invoices with automated tax calculations and digital tracking.</p>
+</a>
+<a href=https://tax-centre.com target=_blank class=form-card>
+<i class="fas fa-seedling"></i>
+<h3>Agro &amp; SME Systems</h3>
+<p>Custom tools for agriculture and small businesses to manage operations and growth.</p>
+</a>
+<a href=https://tax-centre.com target=_blank class=form-card>
+<i class="fas fa-hard-hat"></i>
+<h3>National Council Of Construction</h3>
+<p>Support for registration, compliance, and digital systems tailored to construction firms.</p>
+</a>
+<a href=https://tax-centre.com target=_blank class=form-card>
+<i class="fas fa-network-wired"></i>
+<h3>Web, System Dev &amp; ERPs</h3>
+<p>Build custom websites, business systems, and ERP platforms to streamline your workflow.</p>
+</a>
 </div>
-<div id="servicesPopup" class="popup" style="display:none;">
-  <div class="popup-content scrollable-modal">
-    <h2 class="modal-title">Tax Returns Online Services</h2>
-    <div class="form-card-grid">
-      <!-- Each card links to taxman.co.zm -->
-      <a href="https://tax-centre.com" target="_blank" class="form-card">
-        <i class="fas fa-file-alt"></i>
-        <h3>Incomplete Records</h3>
-        <p>We help reconstruct missing financial data to ensure accurate reporting and compliance.</p>
-      </a>
-
-      <a href="https://tax-centre.com" target="_blank" class="form-card">
-        <i class="fas fa-exchange-alt"></i>
-        <h3>Debtors &amp; Creditors</h3>
-        <p>Track who owes you and who you owe with clear reconciliation tools and reports.</p>
-      </a>
-
-      <a href="https://tax-centre.com" target="_blank" class="form-card">
-        <i class="fas fa-book"></i>
-        <h3>Cash Book &amp; Ledger</h3>
-        <p>Maintain organized records of all transactions for full financial visibility.</p>
-      </a>
-
-      <a href="https://tax-centre.com" target="_blank" class="form-card">
-        <i class="fas fa-users"></i>
-        <h3>Payroll Management</h3>
-        <p>Automate payroll, NAPSA, and PAYE calculations with secure employee data handling.</p>
-      </a>
-
-      <a href="https://tax-centre.com" target="_blank" class="form-card">
-        <i class="fab fa-sass"></i>
-        <h3>SAGE Setup</h3>
-        <p>Get professional configuration and onboarding for your SAGE accounting system.</p>
-      </a>
-
-      <a href="https://tax-centre.com" target="_blank" class="form-card">
-        <i class="fas fa-building"></i>
-        <h3>ZRA Agency</h3>
-        <p>We act as your ZRA liaison, simplifying tax registration, filing, and Smart Invoice setup.</p>
-      </a>
-
-      <a href="https://tax-centre.com" target="_blank" class="form-card">
-        <i class="fas fa-receipt"></i>
-        <h3>Smart Invoicing</h3>
-        <p>Generate ZRA-compliant invoices with automated tax calculations and digital tracking.</p>
-      </a>
-
-      <a href="https://tax-centre.com" target="_blank" class="form-card">
-        <i class="fas fa-seedling"></i>
-        <h3>Agro &amp; SME Systems</h3>
-        <p>Custom tools for agriculture and small businesses to manage operations and growth.</p>
-      </a>
-
-      <a href="https://tax-centre.com" target="_blank" class="form-card">
-        <i class="fas fa-hard-hat"></i>
-        <h3>National Council Of Construction</h3>
-        <p>Support for registration, compliance, and digital systems tailored to construction firms.</p>
-      </a>
-
-      <a href="https://tax-centre.com" target="_blank" class="form-card">
-        <i class="fas fa-network-wired"></i>
-        <h3>Web, System Dev &amp; ERPs</h3>
-        <p>Build custom websites, business systems, and ERP platforms to streamline your workflow.</p>
-      </a>
-    </div>
-    <button onclick="window.location.href='NCC.html'" class="close-btn">Close</button>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
-<script>
-const payBtn = document.getElementById('payWithZynle');
-const closeBtn = document.querySelector('.close');
-const addGradeBtn = document.getElementById('addGradeRow');
-const gradeContainer = document.getElementById('gradeRowsContainer');
-const proceedBtn = document.getElementById('proceedToZynlePay');
-const grandTotalDisplay = document.getElementById('grandTotal');
-
-// Fee structure
-const fees = {
-  zambian: {
-    grade1: 16666.80,
-    grade2: 12500.10,
-    grade3: 8333.40,
-    grade4: 2499.90,
-    grade5: 1250.10,
-    grade6: 833.40
-},
-  foreign: {
-    annual: {
-      grade1: 100000,
-      grade2: 75000
-}
-},
-  specialist: {
-    local: {
-      registration: {
-        classA: 7750,
-        classB: 1875
-},
-      express: {
-        classA: 15500,
-        classB: 3750
-}
-},
-    foreign: {
-      registration: {
-        classA: 100000
-},
-      express: {
-        classA: 200000
-}
-}
-}
-};
-
-// Show modal
-//payBtn.addEventListener('click', () => modal.style.display = 'block');
-//closeBtn.addEventListener('click', () => modal.style.display = 'none');
-
-// Add new grade row
-addGradeBtn.addEventListener('click', () => {
-  const newRow = gradeContainer.firstElementChild.cloneNode(true);
-  newRow.querySelectorAll('select, input').forEach(el => el.value = '');
-  newRow.querySelector('.feeInWords').textContent = '';
-  attachCompanyTypeListener(newRow);
-  gradeContainer.appendChild(newRow);
-});
-
-// Attach listener to update grade options based on company type
-function attachCompanyTypeListener(row) {
-  const companyTypeSelect = row.querySelector('.companyType');
-  const feeGradeSelect = row.querySelector('.feeGrade');
-
-  companyTypeSelect.addEventListener('change', () => {
-    const companyType = companyTypeSelect.value;
-    feeGradeSelect.innerHTML = '<option value="">Select Grade</option>';
-
-    if (companyType === 'zambian') {
-      Object.keys(fees.zambian).forEach(grade => {
-        const option = document.createElement('option');
-        option.value = grade;
-        option.text = grade.charAt(0).toUpperCase() + grade.slice(1);
-        feeGradeSelect.appendChild(option);
-});
-} else if (companyType === 'foreign') {
-      Object.keys(fees.foreign.annual).forEach(grade => {
-        const option = document.createElement('option');
-        option.value = grade;
-        option.text = grade.charAt(0).toUpperCase() + grade.slice(1);
-        feeGradeSelect.appendChild(option);
-});
-} else if (companyType === 'specialist_local') {
-    ['classA', 'classB'].forEach(grade => {
-      const option = document.createElement('option');
-      option.value = grade;
-      option.text = `Class ${grade.charAt(grade.length - 1).toUpperCase()}`;
-      feeGradeSelect.appendChild(option);
-});
-} else if (companyType === 'specialist_foreign') {
-      const option = document.createElement('option');
-      option.value = 'classA';
-      option.text = 'Class A';
-      feeGradeSelect.appendChild(option);
-}
-
-    calculateFees(); // Recalculate after grade options update
-});
-}
-
-// Initial listener setup for first row
-attachCompanyTypeListener(gradeContainer.firstElementChild);
-
-// Calculate fees for all rows
-function calculateFees() {
-  const gradeRows = document.querySelectorAll('.grade-row');
-  let grandTotal = 0;
-
-  gradeRows.forEach(row => {
-    const companyType = row.querySelector('.companyType')?.value || '';
-    const feeGrade = row.querySelector('.feeGrade')?.value || '';
-     const contractor_category = row.querySelector('.contractor_category')?.value || ''; 
-  const expressOption = row.querySelector('.expressOption')?.value || '';
-    const registrationFeeInput = row.querySelector('.registrationFee');
-    const feeInWordsParagraph = row.querySelector('.feeInWords');
-
-    let registrationFee = 0;
-
-    if (companyType === 'zambian') {
-      registrationFee = fees.zambian[feeGrade] || 0;
-} else if (companyType === 'foreign') {
-      registrationFee = fees.foreign.annual[feeGrade] || 0;
-} else if (companyType === 'specialist_local') {
-      registrationFee = expressOption === 'express'
-? fees.specialist.local.express[feeGrade] || 0
-: fees.specialist.local.registration[feeGrade] || 0;
-} else if (companyType === 'specialist_foreign') {
-      registrationFee = expressOption === 'express'
-? fees.specialist.foreign.express[feeGrade] || 0
-: fees.specialist.foreign.registration[feeGrade] || 0;
-}
-
-    registrationFeeInput.value = registrationFee.toFixed(2);
-    feeInWordsParagraph.textContent = numberToWords(registrationFee);
-    grandTotal += registrationFee;
-});
-
-  grandTotalDisplay.textContent = `ZMW ${grandTotal.toFixed(2)}`;
-}
-
-// Trigger fee calculation on any change
-gradeContainer.addEventListener('change', () => calculateFees());
-
-// Modal controls
-const modal = document.getElementById("zynlePayModal");
-const openBtn = document.getElementById("proceedToZynlePay");
-
-openBtn.onclick = () => modal.style.display = "block";
-closeBtn.onclick = () => modal.style.display = "none";
-window.onclick = (e) => {
-  if (e.target === modal) modal.style.display = "none";
-};
-
-// Payment form submission
-document.getElementById("zynlePayForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  modal.style.display = "none";
-
-  const total = parseFloat(grandTotalDisplay.textContent.replace('ZMW ', '')) || 0;
-  if (total <= 0) {
-    alert("Please complete all grade selections.");
-    return;
-}
-
-  const referenceNo = `ref-${Date.now()}`;
-  const contractorName = document.querySelector('input[name="company_name"]').value.trim();
-  const email = document.querySelector('input[name="email"]').value.trim();
-  const phone = "0571544364";
-
-  // ✅ Safely extract first and last name
-  const nameParts = contractorName.split(" ");
-  const firstName = nameParts[0] || "Contractor";
-  const lastName = nameParts[1] || "";
-
-  const payload = {
-    reference_no: referenceNo,
-    amount: total.toFixed(2),
-    description: "Registration Payment",
-    first_name: firstName,
-    last_name: lastName,
-    address: "NCC Zambia",
-    email,
-    phone,
-    city: "Lusaka",
-    state: "Lusaka",
-    currency: "ZMW",
-    zip_code: "10101",
-    country: "ZM"
-};
-
-  try {
-  const response = await fetch("https://payments-5e3m.vercel.app/initiate-card-payment", {
-    method: "POST",
-    headers: { "Content-Type": "application/json"},
-    body: JSON.stringify(payload)
-});
-
-  const result = await response.json();
-
-  if (result.response?.response_code === "100") {
-    // Check for outstanding balances
-    const balanceCheck = await fetch(`https://payments-5e3m.vercel.app/check-balance?contractorId=${payload.reference_no}`);
-    const balanceResult = await balanceCheck.json();
-
-    if (balanceResult.hasOutstandingBalance) {
-      alert("⚠️ You have outstanding balances. Please clear them before generating your certificate.");
-      return; // Stop here
-}
-
-    alert("✅ Payment simulated successfully. Generating certificate...");
-    generateCertificate(); // Stay on same page, no redirect
-
-} else {
-    alert(`❌ Payment failed: ${result.response?.response_message || "Unknown error"}`);
-    console.error("Payment failure:", result);
-}
-} catch (err) {
-  alert("⚠️ Unable to connect to payment server. Please try again.");
-  console.error("Connection error:", err);
-}
-});
-
- 
-
-// Convert number to words
-function numberToWords(amount) {
-  const ones = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"];
-  const teens = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"];
-  const tens = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
-  const scales = ["", "Thousand", "Million", "Billion"];
-
-  function convertChunk(num) {
-    let words = "";
-    if (num>= 100) {
-      words += ones[Math.floor(num / 100)] + " Hundred";
-      num %= 100;
-      if (num) words += " and ";
-}
-    if (num>= 20) {
-      words += tens[Math.floor(num / 10)];
-      num %= 10;
-      if (num) words += " " + ones[num];
-} else if (num>= 10) {
-      words += teens[num - 10];
-} else if (num> 0) {
-      words += ones[num];
-}
-    return words;
-}
-
-  function convertWholeNumber(num) {
-    if (num === 0) return "Zero";
-    let chunks = [];
-    while (num> 0) {
-      chunks.push(num % 1000);
-      num = Math.floor(num / 1000);
-}
-
-    let words = "";
-    for (let i = chunks.length - 1; i>= 0; i--) {
-      if (chunks[i]!== 0) {
-        words += convertChunk(chunks[i]) + " " + scales[i] + " ";
-}
-}
-    return words.trim();
-}
-
-  const whole = Math.floor(amount);
-  const decimal = Math.round((amount - whole) * 100);
-  const kwacha = convertWholeNumber(whole);
-  const ngwee = decimal> 0? convertWholeNumber(decimal) + " Ngwee": "Zero Ngwee";
-
-return `${kwacha} Kwacha and ${ngwee}`;
-}
-
-
- function generateCertificate() {
-  const gradeRows = document.querySelectorAll('.grade-row');
-  const contractorName = document.querySelector('input[name="company_name"]').value;
-  const contractor_category = document.querySelector('.contractor_category').value;
-  const year = new Date().getFullYear();
-  const registrationNumber = `NCC/${year}/${Math.floor(1000 + Math.random() * 9000)}`;
-  let category = "";
-
-  gradeRows.forEach((row) => {
-    const companyType = row.querySelector('.companyType').value;
-    const feeGrade = row.querySelector('.feeGrade').value;
-    const rowCategory = row.querySelector('.contractor_category').value;
-    if (companyType && feeGrade && rowCategory) {
-      category += `${companyType} - ${feeGrade} - ${rowCategory}, `;
-    }
-  });
-
-  category = category.trim().replace(/,$/, "");
-  const expiryDate = new Date(year + 1, 11, 31).toLocaleDateString();
-
-  const certificateHTML = `<!DOCTYPE html><html>
-  <head>
-    <title>Certificate</title>
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"><\/script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lora&family=Merriweather&family=Playfair+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-body {
-  font-family: 'Georgia', serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to right, #e6f0f0, #ffffff); /* Soft Gray to White */
-}
-
-.certificate-container {
-  width: 800px;
-  height: 600px;
-  margin: 40px auto;
-  padding: 60px;
-  background: #fff;
-  border: 16px solid #EF1C25; /* Pigment Red */
-  box-shadow: 0 0 30px rgba(239, 28, 37, 0.3); /* Red shadow */
-  position: relative;
-}
-
-.ribbon {
-  position: absolute;
-  top: 40px;
-  left: -30px;
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle at center, #EF1C25 60%, #c4121b 100%); /* Red gradient */
-  background-image: url('ncc.png');
-  background-size: 105%;
-  background-repeat: no-repeat;
-  background-position: center;
-  color: white;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transform: rotate(-15deg);
-  z-index: 2;
-  border: 4px solid #ffffff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  text-align: center;
-  padding: 10px;
-}
-
-.ribbon.icon-left,
-.ribbon.icon-right {
-  font-size: 16px;
-  margin: 2px;
-}
-
-.ribbon-text {
-  font-weight: bold;
-  margin: 4px 0;
-    color : black;
-}
-
-.watermark {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.05;
-  width: 400px;
-  height: 400px;
-  z-index: 0;
-}
-
-.certificate-header {
-  text-align: center;
-  margin-bottom: 20px;
-  position: relative;
-  z-index: 1;
-}
-
-.certificate-header img {
-  height: 60px;
-  margin-bottom: 10px;
-}
-
-.certificate-header h1 {
-  font-family: 'Cinzel', serif;
-  font-size: 32px;
-  color: #333; /* Pigment Red */
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  padding-bottom: 8px;
-  display: inline-block;
-  border-bottom: 3px double #EF1C25;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.certificate-header h2 {
-  font-family: 'Lora', serif;
-  font-size: 18px;
-  color: #333; /* Charcoal */
-  margin-bottom: 10px;
-}
-
-.certificate-header h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  color: #333; /* Charcoal for contrast */
-  margin-bottom: 20px;
-}
-
-.certificate-content {
-  text-align: center;
-  font-size: 16px;
-  color: #333;
-  line-height: 1.6;
-  position: relative;
-  z-index: 1;
-}
-
-.certificate-content p {
-  font-family: 'Merriweather', serif;
-  font-size: 16px;
-  color: #333;
-  line-height: 1.6;
-}
-
-#qrcode {
-  margin: 20px auto;
-}
-
-.certificate-footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-  position: relative;
-  z-index: 1;
-}
-
-.signature-block {
-  width: 40%;
-  text-align: center;
-}
-
-.signature-block.line {
-  border-top: 1px solid #EF1C25; /* Red signature line */
-  margin-bottom: 5px;
-}
-
-footer {
-  text-align: center;
-  font-size: 12px;
-  margin-top: 20px;
-  color: #333; /* Charcoal */
-}
-    </style>
-</head>
-  <body>
-    <div class="certificate-container">
-      <div class="ribbon"> 
-      </div>
-      <img src="ncc.png" class="watermark" alt="Watermark">
-      <div class="certificate-header">
-        <img src="ncc.png" alt="NCC Logo">
-        <h1>Certificate of Registration</h1>
-        <h2>This certificate is presented to</h2>
-        <h3>${contractorName}</h3>
-      </div>
-      <div class="certificate-content">
-        <p>This is to certify that <strong>${contractorName}</strong> has been registered for the <strong>${contractor_category}</strong> category with the National Council of Contractors Zambia for the year ${year}.</p>
-        <p>Registration Number: ${registrationNumber}</p>
-        <p>Category: ${category}</p>
-        <p>Expiry Date: ${expiryDate}</p>
-        <div id="qrcode"></div>
-      </div>
-      <div class="certificate-footer">
-        <div class="signature-block">
-          <div class="line"></div>
-          <p>SIGNER</p>
-        </div>
-        <div class="signature-block">
-          <div class="line"></div>
-          <p>ISSUER DATE</p>
-        </div>
-      </div>
-    </div>
-    <footer>
-      National Council for Construction Zambia • www.ncc.org.zm
-    </footer>
-  </body>
+<button onclick='window.location.href="NCC.html"' class=close-btn>Close</button>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js></script>
+<script>const payBtn=document.getElementById("payWithZynle"),closeBtn=document.querySelector(".close"),addGradeBtn=document.getElementById("addGradeRow"),gradeContainer=document.getElementById("gradeRowsContainer"),proceedBtn=document.getElementById("proceedToZynlePay"),grandTotalDisplay=document.getElementById("grandTotal"),fees={zambian:{grade1:16666.8,grade2:12500.1,grade3:8333.4,grade4:2499.9,grade5:1250.1,grade6:833.4},foreign:{annual:{grade1:1e5,grade2:75e3}},specialist:{local:{registration:{classA:7750,classB:1875},express:{classA:15500,classB:3750}},foreign:{registration:{classA:1e5},express:{classA:2e5}}}};function attachCompanyTypeListener(e){const n=e.querySelector(".companyType"),t=e.querySelector(".feeGrade");n.addEventListener("change",(()=>{const e=n.value;if(t.innerHTML='<option value="">Select Grade</option>',"zambian"===e)Object.keys(fees.zambian).forEach((e=>{const n=document.createElement("option");n.value=e,n.text=e.charAt(0).toUpperCase()+e.slice(1),t.appendChild(n)}));else if("foreign"===e)Object.keys(fees.foreign.annual).forEach((e=>{const n=document.createElement("option");n.value=e,n.text=e.charAt(0).toUpperCase()+e.slice(1),t.appendChild(n)}));else if("specialist_local"===e)["classA","classB"].forEach((e=>{const n=document.createElement("option");n.value=e,n.text=`Class ${e.charAt(e.length-1).toUpperCase()}`,t.appendChild(n)}));else if("specialist_foreign"===e){const e=document.createElement("option");e.value="classA",e.text="Class A",t.appendChild(e)}calculateFees()}))}function calculateFees(){const e=document.querySelectorAll(".grade-row");let n=0;e.forEach((e=>{const t=e.querySelector(".companyType")?.value||"",o=e.querySelector(".feeGrade")?.value||"",a=(e.querySelector(".contractor_category")?.value,e.querySelector(".expressOption")?.value||""),r=e.querySelector(".registrationFee"),i=e.querySelector(".feeInWords");let l=0;"zambian"===t?l=fees.zambian[o]||0:"foreign"===t?l=fees.foreign.annual[o]||0:"specialist_local"===t?l="express"===a?fees.specialist.local.express[o]||0:fees.specialist.local.registration[o]||0:"specialist_foreign"===t&&(l="express"===a?fees.specialist.foreign.express[o]||0:fees.specialist.foreign.registration[o]||0),r.value=l.toFixed(2),i.textContent=numberToWords(l),n+=l})),grandTotalDisplay.textContent=`ZMW ${n.toFixed(2)}`}addGradeBtn.addEventListener("click",(()=>{const e=gradeContainer.firstElementChild.cloneNode(!0);e.querySelectorAll("select, input").forEach((e=>e.value="")),e.querySelector(".feeInWords").textContent="",attachCompanyTypeListener(e),gradeContainer.appendChild(e)})),attachCompanyTypeListener(gradeContainer.firstElementChild),gradeContainer.addEventListener("change",(()=>calculateFees()));const modal=document.getElementById("zynlePayModal"),openBtn=document.getElementById("proceedToZynlePay");function numberToWords(e){const n=["","One","Two","Three","Four","Five","Six","Seven","Eight","Nine"],t=["Ten","Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen"],o=["","","Twenty","Thirty","Forty","Fifty","Sixty","Seventy","Eighty","Ninety"],a=["","Thousand","Million","Billion"];function r(e){let a="";return e>=100&&(a+=n[Math.floor(e/100)]+" Hundred",(e%=100)&&(a+=" and ")),e>=20?(a+=o[Math.floor(e/10)],(e%=10)&&(a+=" "+n[e])):e>=10?a+=t[e-10]:e>0&&(a+=n[e]),a}function i(e){if(0===e)return"Zero";let n=[];for(;e>0;)n.push(e%1e3),e=Math.floor(e/1e3);let t="";for(let e=n.length-1;e>=0;e--)0!==n[e]&&(t+=r(n[e])+" "+a[e]+" ");return t.trim()}const l=Math.floor(e),c=Math.round(100*(e-l));return`${i(l)} Kwacha and ${c>0?i(c)+" Ngwee":"Zero Ngwee"}`}function generateCertificate(){const e=document.querySelectorAll(".grade-row"),n=document.querySelector('input[name="company_name"]').value,t=document.querySelector(".contractor_category").value,o=(new Date).getFullYear(),a=`NCC/${o}/${Math.floor(1e3+9e3*Math.random())}`;let r="";e.forEach((e=>{const n=e.querySelector(".companyType").value,t=e.querySelector(".feeGrade").value,o=e.querySelector(".contractor_category").value;n&&t&&o&&(r+=`${n} - ${t} - ${o}, `)})),r=r.trim().replace(/,$/,"");const i=new Date(o+1,11,31).toLocaleDateString(),l=`<!DOCTYPE html><html>\n  <head>\n    <title>Certificate</title>\n    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"><\/script>\n    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lora&family=Merriweather&family=Playfair+Display&display=swap" rel="stylesheet">\n    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">\n    <style>\nbody {\n  font-family: 'Georgia', serif;\n  margin: 0;\n  padding: 0;\n  background: linear-gradient(to right, #e6f0f0, #ffffff); /* Soft Gray to White */\n}\n\n.certificate-container {\n  width: 800px;\n  height: 600px;\n  margin: 40px auto;\n  padding: 60px;\n  background: #fff;\n  border: 16px solid #EF1C25; /* Pigment Red */\n  box-shadow: 0 0 30px rgba(239, 28, 37, 0.3); /* Red shadow */\n  position: relative;\n}\n\n.ribbon {\n  position: absolute;\n  top: 40px;\n  left: -30px;\n  width: 120px;\n  height: 120px;\n  background: radial-gradient(circle at center, #EF1C25 60%, #c4121b 100%); /* Red gradient */\n  background-image: url('ncc.png');\n  background-size: 105%;\n  background-repeat: no-repeat;\n  background-position: center;\n  color: white;\n  border-radius: 50%;\n  box-shadow: 0 4px 8px rgba(0,0,0,0.3);\n  transform: rotate(-15deg);\n  z-index: 2;\n  border: 4px solid #ffffff;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  font-size: 12px;\n  text-align: center;\n  padding: 10px;\n}\n\n.ribbon.icon-left,\n.ribbon.icon-right {\n  font-size: 16px;\n  margin: 2px;\n}\n\n.ribbon-text {\n  font-weight: bold;\n  margin: 4px 0;\n    color : black;\n}\n\n.watermark {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  opacity: 0.05;\n  width: 400px;\n  height: 400px;\n  z-index: 0;\n}\n\n.certificate-header {\n  text-align: center;\n  margin-bottom: 20px;\n  position: relative;\n  z-index: 1;\n}\n\n.certificate-header img {\n  height: 60px;\n  margin-bottom: 10px;\n}\n\n.certificate-header h1 {\n  font-family: 'Cinzel', serif;\n  font-size: 32px;\n  color: #333; /* Pigment Red */\n  text-transform: uppercase;\n  margin-bottom: 10px;\n  padding-bottom: 8px;\n  display: inline-block;\n  border-bottom: 3px double #EF1C25;\n  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);\n}\n\n.certificate-header h2 {\n  font-family: 'Lora', serif;\n  font-size: 18px;\n  color: #333; /* Charcoal */\n  margin-bottom: 10px;\n}\n\n.certificate-header h3 {\n  font-family: 'Playfair Display', serif;\n  font-size: 24px;\n  color: #333; /* Charcoal for contrast */\n  margin-bottom: 20px;\n}\n\n.certificate-content {\n  text-align: center;\n  font-size: 16px;\n  color: #333;\n  line-height: 1.6;\n  position: relative;\n  z-index: 1;\n}\n\n.certificate-content p {\n  font-family: 'Merriweather', serif;\n  font-size: 16px;\n  color: #333;\n  line-height: 1.6;\n}\n\n#qrcode {\n  margin: 20px auto;\n}\n\n.certificate-footer {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 40px;\n  position: relative;\n  z-index: 1;\n}\n\n.signature-block {\n  width: 40%;\n  text-align: center;\n}\n\n.signature-block.line {\n  border-top: 1px solid #EF1C25; /* Red signature line */\n  margin-bottom: 5px;\n}\n\nfooter {\n  text-align: center;\n  font-size: 12px;\n  margin-top: 20px;\n  color: #333; /* Charcoal */\n}\n    </style>\n</head>\n  <body>\n    <div class="certificate-container">\n      <div class="ribbon"> \n      </div>\n      <img src="ncc.png" class="watermark" alt="Watermark">\n      <div class="certificate-header">\n        <img src="ncc.png" alt="NCC Logo">\n        <h1>Certificate of Registration</h1>\n        <h2>This certificate is presented to</h2>\n        <h3>${n}</h3>\n      </div>\n      <div class="certificate-content">\n        <p>This is to certify that <strong>${n}</strong> has been registered for the <strong>${t}</strong> category with the National Council of Contractors Zambia for the year ${o}.</p>\n        <p>Registration Number: ${a}</p>\n        <p>Category: ${r}</p>\n        <p>Expiry Date: ${i}</p>\n        <div id="qrcode"></div>\n      </div>\n      <div class="certificate-footer">\n        <div class="signature-block">\n          <div class="line"></div>\n          <p>SIGNER</p>\n        </div>\n        <div class="signature-block">\n          <div class="line"></div>\n          <p>ISSUER DATE</p>\n        </div>\n      </div>\n    </div>\n    <footer>\n      National Council for Construction Zambia • www.ncc.org.zm\n    </footer>\n  </body>\n</html>\n`,c=window.open("","_blank");c?(c.document.write(l),c.document.close(),c.onload=()=>{const e=c.document.getElementById("qrcode");e&&c.QRCode?new c.QRCode(e,{text:a,width:100,height:100}):console.warn("QR code target or library not available.");const n=c.document.createElement("button");n.textContent="Download PDF",n.style.position="fixed",n.style.top="20px",n.style.right="20px",n.style.padding="10px 20px",n.style.backgroundColor="#007b7f",n.style.color="#fff",n.style.border="none",n.style.cursor="pointer",n.style.zIndex="999",n.onclick=()=>c.print(),c.document.body.appendChild(n)}):alert("Popup blocked. Please allow popups to view your certificate.")}openBtn.onclick=()=>modal.style.display="block",closeBtn.onclick=()=>modal.style.display="none",window.onclick=e=>{e.target===modal&&(modal.style.display="none")},document.getElementById("zynlePayForm").addEventListener("submit",(async e=>{e.preventDefault(),modal.style.display="none";const n=parseFloat(grandTotalDisplay.textContent.replace("ZMW ",""))||0;if(n<=0)return void alert("Please complete all grade selections.");const t=`ref-${Date.now()}`,o=document.querySelector('input[name="company_name"]').value.trim(),a=document.querySelector('input[name="email"]').value.trim(),r=o.split(" "),i=r[0]||"Contractor",l=r[1]||"",c={reference_no:t,amount:n.toFixed(2),description:"Registration Payment",first_name:i,last_name:l,address:"NCC Zambia",email:a,phone:"0571544364",city:"Lusaka",state:"Lusaka",currency:"ZMW",zip_code:"10101",country:"ZM"};try{const e=await fetch("https://payments-5e3m.vercel.app/initiate-card-payment",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(c)}),n=await e.json();if("100"===n.response?.response_code){const e=await fetch(`https://payments-5e3m.vercel.app/check-balance?contractorId=${c.reference_no}`);if((await e.json()).hasOutstandingBalance)return void alert("⚠️ You have outstanding balances. Please clear them before generating your certificate.");alert("✅ Payment simulated successfully. Generating certificate..."),generateCertificate()}else alert(`❌ Payment failed: ${n.response?.response_message||"Unknown error"}`),console.error("Payment failure:",n)}catch(e){alert("⚠️ Unable to connect to payment server. Please try again."),console.error("Connection error:",e)}}))</script>
+<script>document.addEventListener("DOMContentLoaded",(()=>{const e=document.getElementById("firstRegForm"),t=document.getElementById("progressBar"),n=document.querySelectorAll("fieldset"),i=document.querySelectorAll(".step-label");e.addEventListener("input",(()=>{const n=e.querySelectorAll("input, select, textarea"),i=Array.from(n).filter((e=>""!==e.value.trim())).length,o=n.length,a=Math.round(i/o*100);t.style.width=`${a}%`})),window.addEventListener("scroll",(()=>{let e=0;n.forEach(((t,n)=>{const i=t.getBoundingClientRect();i.top<=150&&i.bottom>=150&&(e=n)})),i.forEach(((t,n)=>{t.classList.toggle("active",n===e)}))}));const o=document.getElementById("signaturePad"),a=o.getContext("2d");let r=!1;o.addEventListener("mousedown",(()=>r=!0)),o.addEventListener("mouseup",(()=>r=!1)),o.addEventListener("mouseout",(()=>r=!1)),o.addEventListener("mousemove",(e=>{if(!r)return;const t=o.getBoundingClientRect();a.lineWidth=2,a.lineCap="round",a.strokeStyle="#000",a.lineTo(e.clientX-t.left,e.clientY-t.top),a.stroke(),a.beginPath(),a.moveTo(e.clientX-t.left,e.clientY-t.top)})),window.clearSignature=function(){a.clearRect(0,0,o.width,o.height),document.getElementById("signatureData").value=""};const c=document.getElementById("checklistContainer"),l={1:["Original Proof of Payment","Certificate of Incorporation","PACRA Printout","ZRA Tax Clearance","Workers Compensation Registration","NAPSA Registration","Audited Accounts","Bank Statement or Reference Letter","Completion Certificates","Technical Staff CVs and Certificates","Certified Academic Certificates","Signed Declaration","Power of Attorney (if applicable)"],5:["Original Proof of Payment","Certificate of Incorporation","PACRA Printout","ZRA Tax Clearance","Bank Statement or Reference Letter","Completion Certificates","Technical Staff CVs and Certificates","Certified Academic Certificates","Signed Declaration","Power of Attorney (if applicable)"]};grade?.addEventListener("change",(()=>{const e=grade.value,t=l[e]||[];c.innerHTML=t.map((e=>`\n      <label><input type="checkbox" required /> ${e}</label>\n    `)).join("")}));const d=o.toDataURL();document.getElementById("signatureData").value=d}))</script>
+<script>function showLoadingSpinner(){document.getElementById("loadingSpinner").style.display="flex"}function hideLoadingSpinner(){document.getElementById("loadingSpinner").style.display="none"}document.addEventListener("DOMContentLoaded",(()=>{const e=document.querySelector("form"),n=document.getElementById("successPopup"),t=document.getElementById("servicesPopup");e.addEventListener("submit",(async function(t){t.preventDefault(),showLoadingSpinner();const o=new FormData(e),i={name:o.get("name"),tpin:o.get("tpin"),email:o.get("email"),phone:o.get("phone"),address:o.get("address"),category:o.get("category")};try{const t=await fetch("https://payments-5e3m.vercel.app/api/register-contractor",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(i)}),o=await t.json();hideLoadingSpinner(),o.success?(n.style.display="block",console.log("Contractor ID:",o.contractorId),e.reset()):(alert("❌ Registration failed. Please try again."),console.error(o))}catch(e){hideLoadingSpinner(),alert("⚠️ Could not connect to server."),console.error("Connection error:",e)}})),window.showServices=function(){n.style.display="none",t.style.display="block"}}))</script>
+<script>function collectBranches(){const e=document.querySelectorAll(".branch-row");return Array.from(e).map((e=>({physical:e.querySelector('[name="branch_physical"]')?.value||"",postal:e.querySelector('[name="branch_postal"]')?.value||"",phone:e.querySelector('[name="branch_phone"]')?.value||"",mobile:e.querySelector('[name="branch_mobile"]')?.value||"",email:e.querySelector('[name="branch_email"]')?.value||""})))}function collectShareholders(){const e=document.querySelectorAll(".shareholder-row");return Array.from(e).map((e=>({name:e.querySelector('[name="shareholder_name"]')?.value||"",nrc:e.querySelector('[name="shareholder_nrc"]')?.value||"",status:e.querySelector('[name="shareholder_status"]')?.value||"",ownership_type:e.querySelector('[name="ownership_type"]')?.value||"",shareholding:parseInt(e.querySelector('[name="shareholding"]').value),qualification:e.querySelector('[name="shareholder_qualification"]')?.value||""})))}function collectTechnicalPersonnel(){const e=document.querySelectorAll(".technical-row");return Array.from(e).map((e=>({name:e.querySelector('[name="professional_name"]').value,qualification:e.querySelector('[name="professional_qualification"]').value,nrc:e.querySelector('[name="professional_nrc"]').value,mobile:e.querySelector('[name="professional_mobile"]').value,cv:e.querySelector('[name="professional_cv"]').value})))}function collectAssets(){return{fixed_assets:document.querySelector('[name="fixed_assets"]').value,equipment_list:document.querySelector('[name="equipment_list"]').value,asset_proof:document.querySelector('[name="asset_proof"]').value,equipment_proof:document.querySelector('[name="equipment_proof"]').value}}function collectContracts(){return{completed_projects:document.querySelector('[name="completed_projects"]').value,ongoing_projects:document.querySelector('[name="ongoing_projects"]').value,completion_certificates:document.querySelector('[name="completion_certificates"]').value,contract_docs:document.querySelector('[name="contract_docs"]').value}}function collectReferences(){const e=document.querySelectorAll(".reference-row");return Array.from(e).map((e=>({name:e.querySelector('[name="referee_name"]').value,firm:e.querySelector('[name="referee_firm"]').value,phone:e.querySelector('[name="referee_phone"]').value,email:e.querySelector('[name="referee_email"]').value,client_name:e.querySelector('[name="client_name"]').value,client_org:e.querySelector('[name="client_org"]').value})))}</script>
+</div></body>
 </html>
-`;
-
-  // Open window
-  const certificateWindow = window.open("", "_blank");
-
-  if (!certificateWindow) {
-    alert("Popup blocked. Please allow popups to view your certificate.");
-    return;
-  }
-
-  // Write certificate content
-  certificateWindow.document.write(certificateHTML);
-  certificateWindow.document.close();
-
- certificateWindow.onload = () => {
-    const qrTarget = certificateWindow.document.getElementById("qrcode");
-    if (qrTarget && certificateWindow.QRCode) {
-      new certificateWindow.QRCode(qrTarget, {
-        text: registrationNumber,
-        width: 100,
-        height: 100
-      });
-    } else {
-      console.warn("QR code target or library not available.");
-    }
-
-    // ✅ Create and append download button AFTER QR code is injected
-    const downloadBtn = certificateWindow.document.createElement('button');
-    downloadBtn.textContent = "Download PDF";
-    downloadBtn.style.position = "fixed";
-    downloadBtn.style.top = "20px";
-    downloadBtn.style.right = "20px";
-    downloadBtn.style.padding = "10px 20px";
-    downloadBtn.style.backgroundColor = "#007b7f";
-    downloadBtn.style.color = "#fff";
-    downloadBtn.style.border = "none";
-    downloadBtn.style.cursor = "pointer";
-    downloadBtn.style.zIndex = "999";
-
-    downloadBtn.onclick = () => certificateWindow.print();
-    certificateWindow.document.body.appendChild(downloadBtn);
-  };
-}
-</script>
-
-
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("firstRegForm");
-  const progressBar = document.getElementById("progressBar");
-  const sections = document.querySelectorAll("fieldset");
-  const stepLabels = document.querySelectorAll(".step-label");
-
-  // Progress bar logic
-  form.addEventListener("input", () => {
-    const inputs = form.querySelectorAll("input, select, textarea");
-    const filled = Array.from(inputs).filter(input => input.value.trim()!== "").length;
-    const total = inputs.length;
-    const progress = Math.round((filled / total) * 100);
-    progressBar.style.width = `${progress}%`;
-
-});
-
-  // Step indicator logic
-  window.addEventListener("scroll", () => {
-    let currentIndex = 0;
-    sections.forEach((section, index) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= 150 && rect.bottom>= 150) currentIndex = index;
-});
-    stepLabels.forEach((label, index) => {
-      label.classList.toggle("active", index === currentIndex);
-});
-});
-
-  // Signature pad logic
-  const canvas = document.getElementById("signaturePad");
-  const ctx = canvas.getContext("2d");
-  let drawing = false;
-
-  canvas.addEventListener("mousedown", () => drawing = true);
-  canvas.addEventListener("mouseup", () => drawing = false);
-  canvas.addEventListener("mouseout", () => drawing = false);
-  canvas.addEventListener("mousemove", e => {
-    if (!drawing) return;
-    const rect = canvas.getBoundingClientRect();
-    ctx.lineWidth = 2;
-    ctx.lineCap = "round";
-    ctx.strokeStyle = "#000";
-    ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
-});
-
-  window.clearSignature = function () {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    document.getElementById("signatureData").value = "";
-};
-
-  
-
-  // Dynamic checklist logic
-  const checklistContainer = document.getElementById("checklistContainer");
-  const checklistItems = {
-    "1": [
-      "Original Proof of Payment",
-      "Certificate of Incorporation",
-      "PACRA Printout",
-      "ZRA Tax Clearance",
-      "Workers Compensation Registration",
-      "NAPSA Registration",
-      "Audited Accounts",
-      "Bank Statement or Reference Letter",
-      "Completion Certificates",
-      "Technical Staff CVs and Certificates",
-      "Certified Academic Certificates",
-      "Signed Declaration",
-      "Power of Attorney (if applicable)"
-    ],
-    "5": [
-      "Original Proof of Payment",
-
-"Certificate of Incorporation",
-      "PACRA Printout",
-      "ZRA Tax Clearance",
-      "Bank Statement or Reference Letter",
-      "Completion Certificates",
-      "Technical Staff CVs and Certificates",
-      "Certified Academic Certificates",
-      "Signed Declaration",
-      "Power of Attorney (if applicable)"
-    ]
-};
-
-  grade?.addEventListener("change", () => {
-    const selectedGrade = grade.value;
-    const items = checklistItems[selectedGrade] || [];
-    checklistContainer.innerHTML = items.map(item => `
-      <label><input type="checkbox" required /> ${item}</label>
-    `).join("");
-});
-
-    // Save signature data
-    const dataURL = canvas.toDataURL();
-    document.getElementById("signatureData").value = dataURL;
-
-});
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const form = document.querySelector('form');
-  const successPopup = document.getElementById('successPopup');
-  const servicesPopup = document.getElementById('servicesPopup');
-
-  form.addEventListener('submit', async function(event) {
-    event.preventDefault();
-    showLoadingSpinner();
-
-    const formData = new FormData(form);
-    const payload = {
-      name: formData.get("name"),
-      tpin: formData.get("tpin"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      address: formData.get("address"),
-      category: formData.get("category")
-};
-
-    try {
-      const response = await fetch("https://payments-5e3m.vercel.app/api/register-contractor", {
-        method: "POST",
-        headers: { "Content-Type": "application/json"},
-        body: JSON.stringify(payload)
-});
-
-      const result = await response.json();
-      hideLoadingSpinner();
-
-      if (result.success) {
-        successPopup.style.display = 'block';
-        console.log("Contractor ID:", result.contractorId);
-        form.reset();
-} else {
-        alert("❌ Registration failed. Please try again.");
-        console.error(result);
-}
-} catch (err) {
-      hideLoadingSpinner();
-      alert("⚠️ Could not connect to server.");
-      console.error("Connection error:", err);
-}
-});
-
-  window.showServices = function() {
-    successPopup.style.display = 'none';
-    servicesPopup.style.display = 'block';
-};
-});
-
-function showLoadingSpinner() {
-  document.getElementById("loadingSpinner").style.display = "flex";
-}
-
-function hideLoadingSpinner() {
-  document.getElementById("loadingSpinner").style.display = "none";
-}
-</script>
-<script>
- function collectBranches() {
-  const branchRows = document.querySelectorAll('.branch-row');
-  return Array.from(branchRows).map(row => ({
-    physical: row.querySelector('[name="branch_physical"]')?.value || "",
-    postal: row.querySelector('[name="branch_postal"]')?.value || "",
-    phone: row.querySelector('[name="branch_phone"]')?.value || "",
-    mobile: row.querySelector('[name="branch_mobile"]')?.value || "",
-    email: row.querySelector('[name="branch_email"]')?.value || ""
-}));
-}
-
-function collectShareholders() {
-  const rows = document.querySelectorAll('.shareholder-row');
-  return Array.from(rows).map(row => ({
-    name: row.querySelector('[name="shareholder_name"]')?.value || "",
-    nrc: row.querySelector('[name="shareholder_nrc"]')?.value || "",
-    status: row.querySelector('[name="shareholder_status"]')?.value || "",
-    ownership_type: row.querySelector('[name="ownership_type"]')?.value || "",
-    shareholding: parseInt(row.querySelector('[name="shareholding"]').value),
-qualification: row.querySelector('[name="shareholder_qualification"]')?.value || "",
-}));
-}
-
-function collectTechnicalPersonnel() {
-  const rows = document.querySelectorAll('.technical-row');
-  return Array.from(rows).map(row => ({
-    name: row.querySelector('[name="professional_name"]').value,
-    qualification: row.querySelector('[name="professional_qualification"]').value,
-    nrc: row.querySelector('[name="professional_nrc"]').value,
-    mobile: row.querySelector('[name="professional_mobile"]').value,
-    cv: row.querySelector('[name="professional_cv"]').value
-}));
-}
-
-function collectAssets() {
-  return {
-    fixed_assets: document.querySelector('[name="fixed_assets"]').value,
-    equipment_list: document.querySelector('[name="equipment_list"]').value,
-    asset_proof: document.querySelector('[name="asset_proof"]').value,
-    equipment_proof: document.querySelector('[name="equipment_proof"]').value
-};
-}
-
-function collectContracts() {
-  return {
-    completed_projects: document.querySelector('[name="completed_projects"]').value,
-    ongoing_projects: document.querySelector('[name="ongoing_projects"]').value,
-    completion_certificates: document.querySelector('[name="completion_certificates"]').value,
-    contract_docs: document.querySelector('[name="contract_docs"]').value
-};
-}
-
-function collectReferences() {
-  const rows = document.querySelectorAll('.reference-row');
-  return Array.from(rows).map(row => ({
-    name: row.querySelector('[name="referee_name"]').value,
-    firm: row.querySelector('[name="referee_firm"]').value,
-    phone: row.querySelector('[name="referee_phone"]').value,
-    email: row.querySelector('[name="referee_email"]').value,
-    client_name: row.querySelector('[name="client_name"]').value,
-    client_org: row.querySelector('[name="client_org"]').value
-}));
-}
-</script>
-</body>
-</html>
-
-
-
